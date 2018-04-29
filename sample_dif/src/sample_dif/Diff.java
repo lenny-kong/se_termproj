@@ -2,6 +2,9 @@ package sample_dif;
 
 import java.util.*;
 
+/*
+ * Enum for LCS backtracking method.
+ */
 enum arrayDirection
 {
 	LEFT,
@@ -10,12 +13,21 @@ enum arrayDirection
 };
 public class Diff {
 	
+	/*
+	 * Simple maximum search method.
+	 */
 	private int max_num(int left, int right)
 	{
 		int max = ((left > right) ? left : right);
 		return max;
 	}
-	public String get_LCS_string(String old, String input) 
+	
+	/*
+	 * Use only for Syntax method.
+	 * Return Longest Common Sequences string.
+	 * Import Algorithm from Wikipedia.
+	 */
+	private String get_LCS_string(String old, String input) 
 	{
 		int arr[][] = new int[old.length() + 1][];
 		arrayDirection arr_s[][] = new arrayDirection[old.length() + 1][];
@@ -67,7 +79,11 @@ public class Diff {
 	    }
 		return answer;
 	}
-	public List<String> syntax_Analysis(String target, String source) 
+	
+	/*
+	 * Return identical word in target and source array.
+	 */
+	public List<String> syntax_Analysis_identical(String target, String source) 
 	{
 		int i = 0;
 		List<String> diff_list = new ArrayList<String>();
@@ -88,5 +104,25 @@ public class Diff {
 			}
 		}
 		return diff_list;
+	}
+	
+	/*
+	 * Return different word in target and source String.
+	 * When diff function may use for source String, just switch two parameters.
+	 */
+	public List<String> syntax_Analysis_diff(String target, String source) 
+	{
+		List<String> identical_list = new ArrayList<String>();
+		List<String> target_list = new ArrayList<String>();
+		
+		identical_list = syntax_Analysis_identical(target, source);
+		String target_array[] = target.split(" ");
+		Collections.addAll(target_list, target_array);
+		
+		for(String identical_word : identical_list) 
+		{
+			target_list.remove(identical_word);
+		}
+		return target_list;
 	}
 }
