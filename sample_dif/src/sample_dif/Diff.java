@@ -16,7 +16,7 @@ public class Diff {
 	/*
 	 * Simple maximum search method.
 	 */
-	private int max_num(int left, int right)
+	protected int max_num(int left, int right)
 	{
 		int max = ((left > right) ? left : right);
 		return max;
@@ -27,7 +27,7 @@ public class Diff {
 	 * Return Longest Common Sequences string.
 	 * Import Algorithm from Wikipedia.
 	 */
-	private String get_LCS_string(String old, String input) 
+	public String get_LCS_string(String old, String input) 
 	{
 		int arr[][] = new int[old.length() + 1][];
 		arrayDirection arr_s[][] = new arrayDirection[old.length() + 1][];
@@ -59,6 +59,11 @@ public class Diff {
 	    String answer="";
 	    while(arr[k][l]!=0){
 	        switch(arr_s[k][l]){
+	        	case LEFT:
+	        	{
+	        		k--;
+	        		break;
+	        	}
 	        case UP:
 	            {
 	                l--;
@@ -68,11 +73,6 @@ public class Diff {
 	            {
 	                answer = old.charAt(k-1)+answer;
 	                k--; l--;
-	                break;
-	            }
-	        case LEFT:
-	            {
-	                k--;
 	                break;
 	            }
 	        }
