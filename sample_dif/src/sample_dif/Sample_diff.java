@@ -14,7 +14,5 @@ public class Sample_diff {
 		System.out.println(sample);
 		sample = dif.syntax_Analysis_diff(a, b);
 		System.out.println(sample);
-		sample = dif.syntax_Analysis_diff(b, a);
-		System.out.println(sample);
 	}
 }
