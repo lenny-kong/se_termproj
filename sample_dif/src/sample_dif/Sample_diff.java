@@ -10,9 +10,10 @@ public class Sample_diff {
 		Diff dif = new Diff();
 		String a = "The lovely little tiny valuable man in the universe.";
 		String b = "The tiny little valuable girl in the universe.";
-		sample = dif.syntax_Analysis_identical(a, b);
-		System.out.println(sample);
 		sample = dif.syntax_Analysis_diff(a, b);
 		System.out.println(sample);
+		System.out.println("Different word : " + sample);
+		sample = dif.syntax_Analysis_identical(b, a);
+		System.out.println("Identical word" + sample);
 	}
 }

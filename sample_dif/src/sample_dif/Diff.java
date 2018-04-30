@@ -27,7 +27,7 @@ public class Diff {
 	 * Return Longest Common Sequences string.
 	 * Import Algorithm from Wikipedia.
 	 */
-	public String get_LCS_string(String old, String input) 
+	private String get_LCS_string(String old, String input) 
 	{
 		int arr[][] = new int[old.length() + 1][];
 		arrayDirection arr_s[][] = new arrayDirection[old.length() + 1][];
