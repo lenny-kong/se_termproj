@@ -9,60 +9,35 @@ public class Diff_string extends Diff{
 	 */
 	private List<String_object> left_String_object_list;
 	private List<String_object> right_String_object_list;
-	private int left_list_size; // Left file list(Total String) size
-	private int right_list_size; // Right file list(Total String) size
-	private int list_size; // 
 	
 	/*
 	 * Constructor
 	 */
 	public Diff_string(String filepath_left, String filepath_right)
 	{
-		//**********************
-		//NOT YET IMPLEMENTED!!
-		//
-		//**********************
-		
-		/*
-		 * Guide for implementation.
-		 * 1. According to filepath, create new file object and read each line.
-		 * 2. Save each line for <String_object> format, and add it into List<String_object>
-		 * 3. Call set_LCS_string_list(List<String_object> left list, List<String_object> right list)
-		 */
+		//파일을 받아서 각 줄을 모두 String_object 형태로 저장 String_object(String string)
+		//그럼 left, right의 List<String_object> 가 나올거심
+		//그담에 그걸 매개변수로 set_LCS_string_list(left list, right list) 호출
+		//Profit!
 	}
 	
 	/*
-	 * ONLY USE FOR TEST!!!
+	 * 주석 포기 ...
+	 * 사람이 쓴 코딩이 아닌듯;;; 어 이거... LCS 알고리즘 맞는데 아직 안돌려봄 알고리즘 궁금하면 무러보세영... by 찬형
 	 */
-	public Diff_string(List<String_object> left, List<String_object> right)
+	public void set_LCS_string_list(List<String_object> left, List<String_object> right) 
 	{
-		set_LCS_string_list(left, right);
-	}
-	
-	/*
-	 * Method for Constructor.
-	 * Same with LCS algorithm for 1 String, compared unit is not Character but String.
-	 * Please check comments in source code.
-	 */
-	private void set_LCS_string_list(List<String_object> left, List<String_object> right) 
-	{
-		//Get left, right list size.
-		this.left_list_size = left.size();
-		this.right_list_size = right.size();
-		
-		//Initialize all Array.
-		int arr[][] = new int[this.left_list_size + 1][];
-		arrayDirection arr_s[][] = new arrayDirection[this.left_list_size + 1][];
-		for(int i = 0; i < this.left_list_size + 1; i++) 
+		int arr[][] = new int[left.size() + 1][];
+		arrayDirection arr_s[][] = new arrayDirection[left.size() + 1][];
+		for(int i = 0; i < left.size() + 1; i++) 
 		{
-			arr[i] = new int[this.right_list_size + 1];
-			arr_s[i] = new arrayDirection[this.right_list_size + 1];
+			arr[i] = new int[right.size() + 1];
+			arr_s[i] = new arrayDirection[right.size() + 1];
 		}
 		
-		//Set value of Array upon LCS algorithm.
-		for(int i=1;i<=this.left_list_size;i++)
+		for(int i=1;i<=left.size();i++)
 		{
-			for(int j=1;j<=this.right_list_size;j++)
+			for(int j=1;j<=right.size();j++)
 			{
 				if(right.get(i-1).string.compareTo(left.get(j-1).string) == 0)
 				{
@@ -77,72 +52,46 @@ public class Diff_string extends Diff{
 				}
 			}
 		}
-		
-		//Temporary variable for indexing.
-		int k = this.left_list_size;
-	    int l = this.right_list_size;
-	    
-	    //Temporary List for reverse.
+		int k = left.size();
+	    int l = right.size();
 	    List<String_object> left_temp = new ArrayList<String_object>();
 	    List<String_object> right_temp = new ArrayList<String_object>();
-	    
-	    //Backtracking to get LCS String list, and set all strings and Modified_status of String_object.
 	    while(arr[k][l]!=0){
 	        switch(arr_s[k][l]){
 	        case LEFT:
             	{
-            		left_temp.add(new String_object(right.get(k-1).string, String_object.Modified_status.INSERT));
-            		right_temp.add(new String_object(right.get(k-1).string, String_object.Modified_status.DELETE));
+            		left_temp.add(new String_object(left.get(k-1).string, String_object.Modified_status.DELETE));
+            		right_temp.add(new String_object(left.get(k-1).string, String_object.Modified_status.INSERT));
             		k--;
             		break;
             	}
 	        case UP:
 	            {
-	            	left_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.DELETE));
-	            	right_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.INSERT));
+	            	left_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.INSERT));
+	            	right_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.DELETE));
 	                l--;
 	                break;
 	            }
 	        case CROSS:
 	            {
-	            	left_temp.add(new String_object(left.get(l-1).string));
-	            	right_temp.add(new String_object(right.get(k-1).string));
+	            	left_temp.add(new String_object(left.get(k-1).string));
+	            	right_temp.add(new String_object(left.get(k-1).string));
 	                k--; l--;
 	                break;
 	            }
 	        }
 	    }
-	    
-	    //Set Empty spaces.
 	    for(int i = k-1; i >= 0; i--) {
-	    	left_temp.add(new String_object(right.get(i).string, String_object.Modified_status.INSERT));
-    		right_temp.add(new String_object(right.get(i).string, String_object.Modified_status.DELETE));
+	    	left_temp.add(new String_object(left.get(k-1).string, String_object.Modified_status.DELETE));
+    		right_temp.add(new String_object(left.get(k-1).string, String_object.Modified_status.INSERT));
 	    }
 	    for(int i = l-1; i >= 0; i--) {
-	    	left_temp.add(new String_object(left.get(i).string, String_object.Modified_status.DELETE));
-        	right_temp.add(new String_object(left.get(i).string, String_object.Modified_status.INSERT));
+	    	left_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.INSERT));
+        	right_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.DELETE));
 	    }
-	    
-	    //Reverse list.
 		left_temp = String_object.<String_object> reverse(left_temp);
 		right_temp = String_object.<String_object> reverse(right_temp);
-		
-		//Get reversed list and set total list size.
 		this.left_String_object_list = left_temp;
 		this.right_String_object_list = right_temp;
-		this.list_size = left_String_object_list.size();
-	}
-	
-	/*
-	 * Print method
-	 * ONLY USE FOR TEST!!!!
-	 */
-	public void print_List() {
-		System.out.println("Left size = " + this.left_list_size + " Right size = " + this.right_list_size+ " Total size = " + this.list_size);
-		for(int i = 0; i < this.list_size; i++) 
-		{
-			System.out.print(this.left_String_object_list.get(i).status.toString() + " " + this.left_String_object_list.get(i).string + " ");
-			System.out.println(this.right_String_object_list.get(i).status.toString() + " " + this.right_String_object_list.get(i).string + " ");
-		}
 	}
 }
