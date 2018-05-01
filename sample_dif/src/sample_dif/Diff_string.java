@@ -65,7 +65,7 @@ public class Diff_string extends Diff{
 		{
 			for(int j=1;j<=this.right_list_size;j++)
 			{
-				if(right.get(i-1).string.compareTo(left.get(j-1).string) == 0)
+				if(left.get(i-1).string.compareTo(right.get(j-1).string) == 0)
 				{
 					arr[i][j] = arr[i-1][j-1]+1;
 					arr_s[i][j] = arrayDirection.CROSS;
@@ -92,22 +92,22 @@ public class Diff_string extends Diff{
 	        switch(arr_s[k][l]){
 	        case LEFT:
             	{
-            		left_temp.add(new String_object(right.get(k-1).string, String_object.Modified_status.INSERT));
-            		right_temp.add(new String_object(right.get(k-1).string, String_object.Modified_status.DELETE));
+            		left_temp.add(new String_object(left.get(k-1).string, String_object.Modified_status.INSERT));
+            		right_temp.add(new String_object("", String_object.Modified_status.DELETE));
             		k--;
             		break;
             	}
 	        case UP:
 	            {
-	            	left_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.DELETE));
-	            	right_temp.add(new String_object(left.get(l-1).string, String_object.Modified_status.INSERT));
+	            	left_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	            	right_temp.add(new String_object(right.get(l-1).string, String_object.Modified_status.INSERT));
 	                l--;
 	                break;
 	            }
 	        case CROSS:
 	            {
-	            	left_temp.add(new String_object(left.get(l-1).string));
-	            	right_temp.add(new String_object(right.get(k-1).string));
+	            	left_temp.add(new String_object(left.get(k-1).string));
+	            	right_temp.add(new String_object(right.get(l-1).string));
 	                k--; l--;
 	                break;
 	            }
@@ -116,12 +116,12 @@ public class Diff_string extends Diff{
 	    
 	    //Set Empty spaces.
 	    for(int i = k-1; i >= 0; i--) {
-	    	left_temp.add(new String_object(right.get(i).string, String_object.Modified_status.INSERT));
-    		right_temp.add(new String_object(right.get(i).string, String_object.Modified_status.DELETE));
+	    	left_temp.add(new String_object(left.get(i).string, String_object.Modified_status.INSERT));
+    		right_temp.add(new String_object("", String_object.Modified_status.DELETE));
 	    }
 	    for(int i = l-1; i >= 0; i--) {
-	    	left_temp.add(new String_object(left.get(i).string, String_object.Modified_status.DELETE));
-        	right_temp.add(new String_object(left.get(i).string, String_object.Modified_status.INSERT));
+	    	left_temp.add(new String_object("", String_object.Modified_status.DELETE));
+        	right_temp.add(new String_object(right.get(i).string, String_object.Modified_status.INSERT));
 	    }
 	    
 	    //Reverse list.
@@ -131,7 +131,7 @@ public class Diff_string extends Diff{
 		//Get reversed list and set total list size.
 		this.left_String_object_list = left_temp;
 		this.right_String_object_list = right_temp;
-		this.list_size = left_String_object_list.size();
+		this.list_size = this.left_String_object_list.size();
 	}
 	
 	/*
@@ -142,8 +142,9 @@ public class Diff_string extends Diff{
 		System.out.println("Left size = " + this.left_list_size + " Right size = " + this.right_list_size+ " Total size = " + this.list_size);
 		for(int i = 0; i < this.list_size; i++) 
 		{
-			System.out.print(this.left_String_object_list.get(i).status.toString() + " " + this.left_String_object_list.get(i).string + " ");
-			System.out.println(this.right_String_object_list.get(i).status.toString() + " " + this.right_String_object_list.get(i).string + " ");
+			System.out.print(this.left_String_object_list.get(i).string);
+			for(int j = 0; j < 50 - this.left_String_object_list.get(i).string.length() ; j++) System.out.print(" ");
+			System.out.println(this.right_String_object_list.get(i).string);
 		}
 	}
 }
