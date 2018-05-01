@@ -24,6 +24,7 @@ public class Diff_string extends Diff{
 		//**********************
 		
 		/*
+		 * ///////////////////////
 		 * Guide for implementation.
 		 * 1. According to filepath, create new file object and read each line.
 		 * 2. Save each line for <String_object> format, and add it into List<String_object>

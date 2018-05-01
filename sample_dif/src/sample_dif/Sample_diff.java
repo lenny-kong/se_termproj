@@ -5,7 +5,6 @@ import java.util.*;
 public class Sample_diff {
 
 	public static void main(String[] args) {
-		//List<String> sample = new ArrayList<String>();
 		
 		String[] text_left = new String[] 
 				{
