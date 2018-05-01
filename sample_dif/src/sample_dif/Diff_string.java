@@ -18,6 +18,41 @@ public class Diff_string extends Diff{
 	 */
 	public Diff_string(String filepath_left, String filepath_right)
 	{
+        
+        
+        
+        List<String_object> left_list = new ArrayList<String_object>();
+        List<String_object> right_list = new ArrayList<String_object>();
+        
+        try {
+            File file_left = new File("/Users/simdaebeom/oldtxt.rtf");// create new file object(left textfile)
+            FileReader left_filereader = new FileReader(file_left); //create input stream
+            BufferedReader left_bufreader = new BufferedReader(left_filereader); //create input buffer
+            String_object leftfile_line=new String_object("");
+            
+            while(left_bufreader.readLine()!=null) {
+                left_list.add(leftfile_line);            //add each line into List
+            }
+            left_bufreader.close();
+            
+            File file_right = new File("/Users/simdaebeom/newtxt.rtf");// create new file object(left textfile)
+            FileReader right_filereader = new FileReader(file_right); //create input stream
+            BufferedReader right_bufreader = new BufferedReader(right_filereader);//create input buffer
+            String_object rightfile_line = new String_object("");
+            while(right_bufreader.readLine()!=null) {
+                right_list.add(rightfile_line);        //add each line into List
+            }
+            right_bufreader.close();
+            
+            
+        }
+        catch (FileNotFoundException e) {
+            
+        }catch(IOException e) {
+            System.out.println(e);
+        }
+        
+        set_LCS_string_list(left_list,right_list);   //Call set_LCS_string_list
 		//**********************
 		//NOT YET IMPLEMENTED!!
 		//
