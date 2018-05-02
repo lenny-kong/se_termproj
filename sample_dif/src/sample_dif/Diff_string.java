@@ -173,6 +173,7 @@ public class Diff_string extends Diff{
 	 * ONLY USE FOR TEST!!!!
 	 */
 	public void print_List() {
+		System.out.println("Left size = " + this.left_list_size + " Right size = " + this.right_list_size+ " Total size = " + this.list_size);
 		for(int i = 0; i < this.list_size; i++) 
 		{
 			System.out.print(this.left_String_object_list.get(i).string);
