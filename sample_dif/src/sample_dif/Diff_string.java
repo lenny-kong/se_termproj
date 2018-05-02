@@ -1,5 +1,6 @@
 package sample_dif;
 
+import java.io.*;
 import java.util.*;
 
 public class Diff_string extends Diff{
@@ -18,41 +19,39 @@ public class Diff_string extends Diff{
 	 */
 	public Diff_string(String filepath_left, String filepath_right)
 	{
-        
-        
-        
+		
         List<String_object> left_list = new ArrayList<String_object>();
         List<String_object> right_list = new ArrayList<String_object>();
+        String tmp; // to read a line in txt file
+        String_object input_line; // to convert string to string_object 
         
         try {
-            File file_left = new File("/Users/simdaebeom/oldtxt.rtf");// create new file object(left textfile)
-            FileReader left_filereader = new FileReader(file_left); //create input stream
-            BufferedReader left_bufreader = new BufferedReader(left_filereader); //create input buffer
-            String_object leftfile_line=new String_object("");
-            
-            while(left_bufreader.readLine()!=null) {
-                left_list.add(leftfile_line);            //add each line into List
-            }
-            left_bufreader.close();
-            
-            File file_right = new File("/Users/simdaebeom/newtxt.rtf");// create new file object(left textfile)
-            FileReader right_filereader = new FileReader(file_right); //create input stream
-            BufferedReader right_bufreader = new BufferedReader(right_filereader);//create input buffer
-            String_object rightfile_line = new String_object("");
-            while(right_bufreader.readLine()!=null) {
-                right_list.add(rightfile_line);        //add each line into List
-            }
-            right_bufreader.close();
-            
-            
+        	BufferedReader left_in_file = new BufferedReader(new FileReader(filepath_left));
+        	while((tmp=left_in_file.readLine())!=null) {
+        		input_line = new String_object(tmp); // convert string to string_object
+        		left_list.add(input_line); // add list
+        	}
+        	left_in_file.close();
         }
-        catch (FileNotFoundException e) {
-            
-        }catch(IOException e) {
-            System.out.println(e);
+        catch (IOException e) {
+            System.err.println(e); // if it occur error, print.
+            System.exit(1);
         }
         
-        set_LCS_string_list(left_list,right_list);   //Call set_LCS_string_list
+        try {
+        	BufferedReader right_in_file = new BufferedReader(new FileReader(filepath_right));
+        	while((tmp=right_in_file.readLine())!=null) {
+        		input_line = new String_object(tmp);
+        		right_list.add(input_line);
+        	}
+        	right_in_file.close();
+        }
+        catch (IOException e) {
+            System.err.println(e); // if it occur error, print.
+            System.exit(1);
+        }
+        set_LCS_string_list(left_list,right_list);
+        
 		//**********************
 		//NOT YET IMPLEMENTED!!
 		//
