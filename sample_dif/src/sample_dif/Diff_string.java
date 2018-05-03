@@ -1,5 +1,6 @@
 package sample_dif;
 
+import java.io.*;
 import java.util.*;
 
 public class Diff_string extends Diff{
@@ -18,6 +19,39 @@ public class Diff_string extends Diff{
 	 */
 	public Diff_string(String filepath_left, String filepath_right)
 	{
+		
+        List<String_object> left_list = new ArrayList<String_object>();
+        List<String_object> right_list = new ArrayList<String_object>();
+        String tmp; // to read a line in txt file
+        String_object input_line; // to convert string to string_object 
+        
+        try {
+        	BufferedReader left_in_file = new BufferedReader(new FileReader(filepath_left));
+        	while((tmp=left_in_file.readLine())!=null) {
+        		input_line = new String_object(tmp); // convert string to string_object
+        		left_list.add(input_line); // add list
+        	}
+        	left_in_file.close();
+        }
+        catch (IOException e) {
+            System.err.println(e); // if it occur error, print.
+            System.exit(1);
+        }
+        
+        try {
+        	BufferedReader right_in_file = new BufferedReader(new FileReader(filepath_right));
+        	while((tmp=right_in_file.readLine())!=null) {
+        		input_line = new String_object(tmp);
+        		right_list.add(input_line);
+        	}
+        	right_in_file.close();
+        }
+        catch (IOException e) {
+            System.err.println(e); // if it occur error, print.
+            System.exit(1);
+        }
+        set_LCS_string_list(left_list,right_list);
+        
 		//**********************
 		//NOT YET IMPLEMENTED!!
 		//
@@ -139,7 +173,6 @@ public class Diff_string extends Diff{
 	 * ONLY USE FOR TEST!!!!
 	 */
 	public void print_List() {
-		System.out.println("Left size = " + this.left_list_size + " Right size = " + this.right_list_size+ " Total size = " + this.list_size);
 		for(int i = 0; i < this.list_size; i++) 
 		{
 			System.out.print(this.left_String_object_list.get(i).string);

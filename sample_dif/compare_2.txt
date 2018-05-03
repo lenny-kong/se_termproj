@@ -1,0 +1,13 @@
+package tweeter;
+class instagram
+{
+int main(String args[])
+{
+int i = 0;
+int k = 0;
+int j = 0;
+k = i + j;
+printf(i + j);
+return 0;
+}
+}
