@@ -16,6 +16,7 @@ public class Edit_button extends JButton implements ActionListener {
 	{
 		super(name, image);
 		this.text_area = text_area;
+		this.addActionListener(this);
 	}
 	
 	/*
