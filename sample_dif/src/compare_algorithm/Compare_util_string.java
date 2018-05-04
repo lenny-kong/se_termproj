@@ -1,33 +1,30 @@
-package sample_dif;
+package compare_algorithm;
 
 import java.util.*;
 
-/*
- * Enum for LCS backtracking method.
- */
-enum arrayDirection
-{
-	LEFT,
-	UP,
-	CROSS,
-};
-public class Diff {
+import common_util_lib.*;
+
+public class Compare_util_string {
 	
-	/*
-	 * Simple maximum search method.
-	 */
-	protected int max_num(int left, int right)
+	protected enum arrayDirection
 	{
-		int max = ((left > right) ? left : right);
-		return max;
-	}
+		LEFT,
+		UP,
+		CROSS,
+	};
+	
+	protected enum parsing_option{
+		LINE,
+		SYNTAX,
+		LEXICAL,
+	};
 	
 	/*
 	 * Use only for Syntax method.
 	 * Return Longest Common Sequences string.
 	 * Import Algorithm from Wikipedia.
 	 */
-	public String get_LCS_string(String old, String input) 
+	static public String get_LCS_string(String old, String input) 
 	{
 		int arr[][] = new int[old.length() + 1][];
 		arrayDirection arr_s[][] = new arrayDirection[old.length() + 1][];
@@ -48,7 +45,7 @@ public class Diff {
 				}
 				else
 				{
-					arr[i][j] = max_num(arr[i-1][j], arr[i][j-1]);
+					arr[i][j] = Utility.max_num(arr[i-1][j], arr[i][j-1]);
 					if(arr[i][j]==arr[i-1][j]) arr_s[i][j] = arrayDirection.LEFT;
 					else arr_s[i][j] = arrayDirection.UP;
 				}
@@ -83,7 +80,7 @@ public class Diff {
 	/*
 	 * Return different word in target and source array.
 	 */
-	public List<String> syntax_Analysis_diff(String target, String source) 
+	static public List<String> syntax_Analysis_diff(String target, String source) 
 	{
 		List<String> diff_list = new ArrayList<String>();
 		List<String> target_list = new ArrayList<String>();
@@ -104,7 +101,7 @@ public class Diff {
 	 * Return identical word in target and source String.
 	 * When function may use for source String, just switch two parameters.
 	 */
-	public List<String> syntax_Analysis_identical(String target, String source) 
+	static public List<String> syntax_Analysis_identical(String target, String source) 
 	{
 		List<String> diff_list = new ArrayList<String>();
 		List<String> target_list = new ArrayList<String>();
@@ -117,4 +114,73 @@ public class Diff {
 		
 		return target_list;
 	}
+	
+	/*
+	 * Get Similarity by Syntax Analysis.
+	 */
+	static public float get_similarity_syntax(String target, String source) 
+	{
+		float similarity;
+		
+		List<String> target_list = new ArrayList<String>();
+		List<String> source_list = new ArrayList<String>();
+
+		List<String> identical_string_list = new ArrayList<String>();
+		
+		Collections.addAll(target_list, target.split(" "));
+		Collections.addAll(source_list, source.split(" "));
+		
+		identical_string_list = syntax_Analysis_identical(target, source);
+		
+		target_list = (target_list.size() >= source_list.size())? target_list : source_list;
+		
+		similarity = (float)identical_string_list.size() / (float)target_list.size();
+		
+		return similarity;
+	}
+	
+	/*
+	 * Get Similarity by Lexical Analysis.
+	 */
+	static public float get_similarity_lexical(String target, String source) 
+	{
+		float similarity;
+		
+		String lcs_string = get_LCS_string(target, source);
+		lcs_string = lcs_string.replaceAll(" ", "");
+		
+		target = (target.length() >= source.length())? target : source;
+		target = target.replaceAll(" ", "");
+		
+		similarity = (float)lcs_string.length() / (float)target.length();
+		
+		return similarity;
+	}
+	
+	/*
+	 * Getter for similarity by option
+	 */
+	static public float get_similarity(String target, String source, parsing_option option) 
+	{
+		float similarity;
+		
+		switch(option) 
+		{
+			case LINE:
+				similarity = (target.equals(source))? 1:0;
+				break;
+			case SYNTAX:
+				similarity = get_similarity_syntax(target, source);
+				break;
+			case LEXICAL:
+				similarity = get_similarity_lexical(target, source);
+				break;
+			default:
+				similarity = 0;
+				break;
+		}
+		
+		return similarity;
+	}
+	
 }
