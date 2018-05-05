@@ -258,6 +258,24 @@ public class Compare_util_string_list extends Compare_util_string{
 	}
 	
 	/*
+	 * Getter.
+	 */
+	public List<String_object> get_left_String_object_list() 
+	{
+		return this.left_String_object_list;
+	}
+	
+	public List<String_object> get_right_String_object_list()
+	{
+		return this.right_String_object_list;
+	}
+	
+	public int get_list_size() 
+	{
+		return this.list_size;
+	}
+	
+	/*
 	 * Print method
 	 * ONLY USE FOR TEST!!!!
 	 */
