@@ -13,9 +13,9 @@ public class String_object {
 		SIMILAR,
 	};
 	
-	private String string; //���Ͽ��� ���� String�� List�� ����.
-	private Modified_status status; //���Ͽ� ����(INSERT), ����(DELETE), ����ȭ(NOCHANGE)�� �ش��ϴ� String�� ����
-	private String_object similar_string_object; // Pointer 'like member for save which string_object is matched.
+	private String string;
+	private Modified_status status;
+	private String_object similar_string_object;
 	
 	/*
 	 * Constructor
@@ -40,7 +40,7 @@ public class String_object {
 	}
 
 	/*
-	 * Getter & Setter
+	 * Getter
 	 */
 	public String get_string() 
 	{

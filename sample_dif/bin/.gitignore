@@ -1,2 +1,7 @@
 /.DS_Store
 /sample_dif/
+/button_model/
+/button_controller/
+/common_util_lib/
+/compare_algorithm/
+/window_view/
