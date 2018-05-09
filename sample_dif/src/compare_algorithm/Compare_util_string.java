@@ -24,21 +24,21 @@ public class Compare_util_string {
 	 * Return Longest Common Sequences string.
 	 * Import Algorithm from Wikipedia.
 	 */
-	static public String get_LCS_string(String old, String input) 
+	static public String get_LCS_string(String target, String source) 
 	{
-		int arr[][] = new int[old.length() + 1][];
-		arrayDirection arr_s[][] = new arrayDirection[old.length() + 1][];
-		for(int i = 0; i < old.length() + 1; i++) 
+		int arr[][] = new int[target.length() + 1][];
+		arrayDirection arr_s[][] = new arrayDirection[target.length() + 1][];
+		for(int i = 0; i < target.length() + 1; i++) 
 		{
-			arr[i] = new int[input.length() + 1];
-			arr_s[i] = new arrayDirection[input.length() + 1];
+			arr[i] = new int[source.length() + 1];
+			arr_s[i] = new arrayDirection[source.length() + 1];
 		}
 		
-		for(int i=1;i<=old.length();i++)
+		for(int i=1;i<=target.length();i++)
 		{
-			for(int j=1;j<=input.length();j++)
+			for(int j=1;j<=source.length();j++)
 			{
-				if(old.charAt(i-1) == input.charAt(j-1))
+				if(target.charAt(i-1) == source.charAt(j-1))
 				{
 					arr[i][j] = arr[i-1][j-1]+1;
 					arr_s[i][j] = arrayDirection.CROSS;
@@ -51,8 +51,8 @@ public class Compare_util_string {
 				}
 			}
 		}
-		int k = old.length();
-	    int l = input.length();
+		int k = target.length();
+	    int l = source.length();
 	    String answer="";
 	    while(arr[k][l]!=0){
 	        switch(arr_s[k][l]){
@@ -68,7 +68,7 @@ public class Compare_util_string {
 	            }
 	        case CROSS:
 	            {
-	                answer = old.charAt(k-1)+answer;
+	                answer = target.charAt(k-1)+answer;
 	                k--; l--;
 	                break;
 	            }
