@@ -1,7 +1,5 @@
-/.DS_Store
-/sample_dif/
-/button_model/
-/button_controller/
-/common_util_lib/
-/compare_algorithm/
+/panel_model/
 /window_view/
+/Button_Text_Panel/
+/button_text_panel/
+/button_text_generator/
