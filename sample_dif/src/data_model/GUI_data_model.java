@@ -8,12 +8,18 @@ import compare_algorithm.*;
 
 public class GUI_data_model {
 	
+	/*
+	 * Enum for Button_text_panel.
+	 */
 	public static enum location
 	{
 		LEFT,
 		RIGHT,
 	}
 	
+	/*
+	 * Data members.
+	 */
 	private JTextArea left_text_area;
 	private JTextArea right_text_area;
 	private String left_file_path;

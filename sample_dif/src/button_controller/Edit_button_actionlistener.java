@@ -9,10 +9,12 @@ public class Edit_button_actionlistener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		// Get source of event and Typecast to Edit_button
 		Edit_button edit_button = (Edit_button)e.getSource();
-		edit_button.set_edit_mode();
-		edit_button.set_is_pushed(Boolean.logicalXor(edit_button.get_is_pushed(), true));
+		
+		// Call toggle function of button_model.
+		edit_button.button_toggle();
+		
 		//Change icon image to clicked image.
 		//Not yet implemented.
 	}

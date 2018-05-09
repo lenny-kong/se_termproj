@@ -3,6 +3,7 @@ package button_model;
 import javax.swing.*;
 
 import button_controller.*;
+import common_util_lib.Utility;
 import data_model.GUI_data_model;
 
 @SuppressWarnings("serial")
@@ -35,12 +36,12 @@ public class Edit_button extends JButton{
 	}
 	
 	/*
-	 * set mode.
+	 * Change is_pushed state.
 	 */
-	public void set_edit_mode() 
+	public void button_toggle() 
 	{
-		left_text_area.setEditable(!get_is_pushed()); 
-		right_text_area.setEditable(!get_is_pushed());
+		this.is_pushed = Utility.bool_reverse(is_pushed);
+		set_edit_mode(is_pushed);
 	}
 	
 	/*
@@ -50,7 +51,19 @@ public class Edit_button extends JButton{
 	{
 		this.setName(name);
 	}
-
+	
+	/*
+	 * set mode.
+	 */
+	private void set_edit_mode(boolean mode) 
+	{
+		left_text_area.setEditable(mode); 
+		right_text_area.setEditable(mode);
+	}
+	
+	/*
+	 * Getter & Setter.
+	 */
 	public JTextArea getRight_text_area() {
 		return right_text_area;
 	}
@@ -63,7 +76,5 @@ public class Edit_button extends JButton{
 		return is_pushed;
 	}
 
-	public void set_is_pushed(boolean is_pushed) {
-		this.is_pushed = is_pushed;
-	}
+	
 }

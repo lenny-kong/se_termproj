@@ -109,6 +109,120 @@ public class Compare_util_string_list extends Compare_util_string{
 	}
 	
 	/*
+	 * Static Function for GUI using.
+	 */
+	public List<String_object> compare(List<String_object> target, List<String_object> source, parsing_option option, float threshold)
+	{
+		float similarity;
+		
+		//Get target, source list size.
+		int target_list_size = target.size();
+		int source_list_size = source.size();
+		
+		//Initialize all Array.
+		float arr[][] = new float[target_list_size + 1][];
+		arrayDirection arr_s[][] = new arrayDirection[target_list_size + 1][];
+		for(int i = 0; i < target_list_size + 1; i++) 
+		{
+			arr[i] = new float[source_list_size + 1];
+			arr_s[i] = new arrayDirection[source_list_size + 1];
+		}
+		
+		//Set value of Array upon LCS algorithm.
+		for(int i=1; i <= target_list_size; i++)
+		{
+			for(int j=1; j <= source_list_size; j++)
+			{
+				similarity = get_similarity(target.get(i-1).get_string(), target.get(j-1).get_string(), option);
+				if(similarity == (float)1)
+				{
+					arr[i][j] = arr[i-1][j-1]+1;
+					arr_s[i][j] = arrayDirection.CROSS;
+				}
+				else if(similarity >= threshold)
+				{
+					arr[i][j] = arr[i-1][j-1]+similarity;
+					arr_s[i][j] = arrayDirection.SIM_CROSS;
+				}
+				else
+				{
+					arr[i][j] = Utility.max_num(arr[i-1][j], arr[i][j-1]);
+					if(arr[i][j]==arr[i-1][j]) arr_s[i][j] = arrayDirection.LEFT;
+					else arr_s[i][j] = arrayDirection.UP;
+				}
+			}
+		}
+		
+		//Temporary variable for indexing.
+		int k = target_list_size;
+	    int l = source_list_size;
+	    
+	    //Temporary List for reverse.
+	    List<String_object> target_temp = new ArrayList<String_object>();
+	    
+	    //Backtracking to get LCS String list, and set all strings and Modified_status of String_object.
+	    while(arr[k][l]!=0){
+	        switch(arr_s[k][l]){
+	        		case LEFT:
+	        		{		
+	        			target_temp.add(new String_object(target.get(k-1).get_string(), String_object.Modified_status.INSERT));
+	        			k--;
+	        			break;
+	        		}
+	        		case UP:
+	        		{
+	        			target_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	        			l--;
+	        			break;
+	        		}
+	        		case CROSS:
+	        		{
+	            		target_temp.add(new String_object(target.get(k-1).get_string()));
+	            		k--; l--;
+	            		break;
+	        		}
+	        		case SIM_CROSS:
+	        		{
+	        			if(get_if_other_cross(arr_s, k, l) == arrayDirection.LEFT)
+	        			{
+	        				target_temp.add(new String_object(target.get(k-1).get_string(), String_object.Modified_status.INSERT));
+		        			k--;
+		        			break;
+	        			}
+	        			else if(get_if_other_cross(arr_s, k, l) == arrayDirection.UP) 
+	        			{
+	        				target_temp.add(new String_object("", String_object.Modified_status.DELETE));
+		        			l--;
+		        			break;
+	        			}
+	        			else 
+	        			{
+	        				target_temp.add(new String_object(target.get(k-1).get_string(), source.get(l-1)));
+	        				k--; l--;
+	        				break;
+	        			}
+	        		}
+	        }
+	    }
+	    
+	    //Set Empty spaces.
+	    for(int i = k-1; i >= 0; i--)
+	    {
+	    	target_temp.add(new String_object(target.get(i).get_string(), String_object.Modified_status.INSERT));
+	    }
+	    for(int i = l-1; i >= 0; i--)
+	    {
+	    	target_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	    }
+	    
+	    //Reverse list.
+		target_temp =  Utility.<String_object>reverse(target_temp);
+		
+		//Return.
+		return target_temp;
+	}
+	
+	/*
 	 * Method for Constructor.
 	 * Same with LCS algorithm for 1 String, compared unit is not Character but String.
 	 * Please check comments in source code.

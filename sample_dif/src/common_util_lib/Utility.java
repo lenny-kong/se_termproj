@@ -59,4 +59,13 @@ public class Utility {
 		else if(max == left) return 0;
 		else return 2;
 	}
+	
+	/*
+	 * If input is true, return false. Otherwise, true.
+	 */
+	static public boolean bool_reverse(boolean input) 
+	{
+		return Boolean.logicalXor(input, true);
+	}
+	
 }
