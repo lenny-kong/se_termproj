@@ -4,6 +4,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import button_controller.Button_mouselistener;
+
 public abstract class Button_model extends JButton{
 	
 	protected ImageIcon current_icon;
@@ -16,6 +18,10 @@ public abstract class Button_model extends JButton{
 	public Button_model(Icon icon) 
 	{
 		super(icon);
+		
+		//add mouselistener.
+		Button_mouselistener mouselistener = new Button_mouselistener();
+		this.addMouseListener(mouselistener);
 	};
 
 	//Set icon image mouseover image.

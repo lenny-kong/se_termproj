@@ -20,8 +20,8 @@ public class Edit_button extends Button_model{
 	
 	//Image file path.
 	private final String default_image_path = "icon_image/edit.png";
-	private final String pushed_image_path = "icon_image/edit.png";
-	private final String mouseover_image_path = "icon_image/edit.png";
+	private final String pushed_image_path = "icon_image/edit_push.png";
+	private final String mouseover_image_path = "icon_image/edit_mouseover.png";
 
 	/*
 	 * Constructor with name, image, text area.
@@ -46,15 +46,14 @@ public class Edit_button extends Button_model{
 		//set button size.
 		this.setPreferredSize(new Dimension(24,24));
 		
-		//get each textarea.
+		//get each textarea to control.
 		this.left_text_area = gui_data_model.getLeft_text_area();
 		this.right_text_area = gui_data_model.getRight_text_area();
 		
-		//add actionlistener.
+		//add its own actionlistener.
 		Edit_button_actionlistener actionlistener = new Edit_button_actionlistener();
-		Button_mouselistener mouselistener = new Button_mouselistener();
 		this.addActionListener(actionlistener);
-		this.addMouseListener(mouselistener);
+
 	}
 	
 	/*
