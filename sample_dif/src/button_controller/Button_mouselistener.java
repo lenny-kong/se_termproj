@@ -2,13 +2,6 @@ package button_controller;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.Graphics2D;
-import java.awt.MouseInfo;
-import java.awt.Rectangle;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 import button_model.Button_model;
 
