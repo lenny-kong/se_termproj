@@ -32,7 +32,7 @@ public class Top_menu_panel extends JPanel{
 		//Use FlowLayout.
 		this.setLayout(new FlowLayout());
 		
-		edit_button = new Edit_button("Edit", null, gui_data_model);
+		edit_button = new Edit_button(gui_data_model);
 		button2 = new JButton("2");
 		button3 = new JButton("3");
 		button4 = new JButton("4");

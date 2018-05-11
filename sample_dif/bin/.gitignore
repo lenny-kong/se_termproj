@@ -2,3 +2,7 @@
 /data_model/
 /panel_model/
 /window_view/
+/button_controller/
+/button_model/
+/common_util_lib/
+/compare_algorithm/
