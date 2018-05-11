@@ -12,15 +12,17 @@ import window_view.Icon_image_load;
 @SuppressWarnings("serial")
 public class Edit_button extends Button_model{
 	
-	//derived properties
-	private ImageIcon pushed_icon;
-	
 	//Own properties
+	private ImageIcon pushed_icon;
+	private boolean is_pushed = false;
 	private JTextArea left_text_area;
 	private JTextArea right_text_area;
 	
-	private boolean is_pushed = false;
-	
+	//Image file path.
+	private final String default_image_path = "icon_image/edit.png";
+	private final String pushed_image_path = "icon_image/edit.png";
+	private final String mouseover_image_path = "icon_image/edit.png";
+
 	/*
 	 * Constructor with name, image, text area.
 	 */
@@ -30,10 +32,11 @@ public class Edit_button extends Button_model{
 		super(Icon_image_load.load_image("icon_image/edit.png"));
 		
 		//load image.
-		this.default_icon = Icon_image_load.load_image("icon_image/edit.png");
-		this.pushed_icon = Icon_image_load.load_image("icon_image/edit_push.png");
-		this.mouseover_icon = Icon_image_load.load_image("icon_image/edit_mouseover.png");
+		this.default_icon = Icon_image_load.load_image(default_image_path);
+		this.pushed_icon = Icon_image_load.load_image(pushed_image_path);
+		this.mouseover_icon = Icon_image_load.load_image(mouseover_image_path);
 	
+		//set current icon image default.
 		this.current_icon = default_icon;	
 		
 		//make buttons transparent.
@@ -62,14 +65,6 @@ public class Edit_button extends Button_model{
 		this.is_pushed = Utility.bool_reverse(is_pushed);
 		set_edit_mode(is_pushed);
 		change_image();
-	}
-	
-	/*
-	 * Set name.(For test)
-	 */
-	public void set_name(String name) 
-	{
-		this.setName(name);
 	}
 	
 	/*
