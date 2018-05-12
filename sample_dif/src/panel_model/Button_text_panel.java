@@ -1,9 +1,9 @@
 package panel_model;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 
 import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
 
 import data_model.GUI_data_model;
 
@@ -26,11 +26,11 @@ public class Button_text_panel extends JPanel{
 		button_panel = new Button_panel(gui_data_model);
 		
 		//Use borderLayout.
-		this.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout(10, 0));
 		
 		this.add(button_panel, "North");
 		this.add(text_panel, "Center");
 		
-		this.setBackground(Color.gray);
+		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}
 }

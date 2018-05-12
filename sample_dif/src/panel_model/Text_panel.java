@@ -1,10 +1,10 @@
 package panel_model;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.EtchedBorder;
 
 import data_model.GUI_data_model;
 
@@ -17,6 +17,7 @@ public class Text_panel extends JPanel{
 		super();
 		
 		this.text_area = new JTextArea();
+		text_area.setBounds(0, 0, 200, 600);	
 		this.text_area.setEditable(false);
 		
 		//Set each text_area of GUI data model.
@@ -27,10 +28,9 @@ public class Text_panel extends JPanel{
 		
 		//Use BorderLayout.
 		this.setLayout(new BorderLayout());
-		
 		this.add(text_area, "Center");
 		
 		//This color may not be shown cause of BorderLayout.
-		this.setBackground(Color.green);
+		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.JTextArea;
 
 import compare_algorithm.*;
+import panel_model.Left_overview_panel;
 
 public class GUI_data_model {
 	
@@ -27,6 +28,8 @@ public class GUI_data_model {
 	private List<String_object> left_list;
 	private List<String_object> right_list;
 	private Compare_util_string_list compared_string_object_list;
+	
+	public Left_overview_panel left_overview_panel;
 	
 	/*
 	 * Constructor

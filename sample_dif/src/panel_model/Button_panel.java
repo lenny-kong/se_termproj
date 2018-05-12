@@ -1,10 +1,10 @@
 package panel_model;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
 
 import button_model.*;
 import data_model.GUI_data_model;
@@ -31,6 +31,6 @@ public class Button_panel extends JPanel{
 		this.add(button2);
 		this.add(button3);
 		
-		this.setBackground(Color.red);
+		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}
 }

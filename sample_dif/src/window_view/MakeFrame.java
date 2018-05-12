@@ -1,6 +1,8 @@
 package window_view;
 
-import javax.swing.*;
+
+import javax.swing.JFrame;
+
 import panel_model.*;
 import data_model.*;
 
@@ -22,21 +24,22 @@ class MainFrame extends JFrame
 		gui_data_model = new GUI_data_model();
 		
 		//Basic setting for Mainframe.
-		setLayout(null);
-		setSize(width, height);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("Test Window");
+		this.setLayout(null);
+		this.setSize(width, height);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		this.setTitle("Test Window");
 		
-		//Construct
+		//Construct. Order is important!!!!!
 		left_button_text_panel = new Button_text_panel(GUI_data_model.location.LEFT, gui_data_model);
 		right_button_text_panel = new Button_text_panel(GUI_data_model.location.RIGHT, gui_data_model);
-		top_menu_panel = new Top_menu_panel(gui_data_model);
 		left_overview_panel = new Left_overview_panel(gui_data_model);
-		
+		top_menu_panel = new Top_menu_panel(gui_data_model);
+
 		//Set location each panels.
 		left_button_text_panel.setBounds(150, 100, Button_text_panel.width, Button_text_panel.height);
 		right_button_text_panel.setBounds(Button_text_panel.width + 200, 100, Button_text_panel.width, Button_text_panel.height);
-		top_menu_panel.setBounds(0, 0, Top_menu_panel.width, Top_menu_panel.height);
+		top_menu_panel.setBounds(500, 20, Top_menu_panel.width, Top_menu_panel.height);
 		left_overview_panel.setBounds(10, 100, Left_overview_panel.width, Left_overview_panel.height);
 		
 		//Add to frame.
