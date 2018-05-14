@@ -3,6 +3,7 @@ package panel_model;
 import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EtchedBorder;
 
@@ -11,14 +12,16 @@ import data_model.GUI_data_model;
 public class Text_panel extends JPanel{
 		
 	public JTextArea text_area;
+	public JScrollPane scroll_pane;
 	
 	public Text_panel(GUI_data_model.location location, GUI_data_model gui_data_model) 
 	{
 		super();
 		
-		this.text_area = new JTextArea();
-		text_area.setBounds(0, 0, 200, 600);	
+		this.text_area = new JTextArea("");	
 		this.text_area.setEditable(false);
+		
+		this.scroll_pane = new JScrollPane(this.text_area);
 		
 		//Set each text_area of GUI data model.
 		if(location == GUI_data_model.location.LEFT)
@@ -28,7 +31,7 @@ public class Text_panel extends JPanel{
 		
 		//Use BorderLayout.
 		this.setLayout(new BorderLayout());
-		this.add(text_area, "Center");
+		this.add(this.scroll_pane, "Center");
 		
 		//This color may not be shown cause of BorderLayout.
 		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
