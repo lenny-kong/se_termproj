@@ -14,6 +14,7 @@ public class Left_overview_panel extends JPanel{
 	public static final int width = 100;
 	public static final int height = 700;
 	
+	//Own properties.
 	public int item_num = 20;
 	public int height_per_item;
 	public int width_per_item;
@@ -21,7 +22,7 @@ public class Left_overview_panel extends JPanel{
 	public Left_overview_panel(GUI_data_model gui_data_model) 
 	{
 		super();
-		gui_data_model.left_overview_panel = this;
+		gui_data_model.setLeft_overview_panel(this);
 		
 		this.setBorder(null);
 	}

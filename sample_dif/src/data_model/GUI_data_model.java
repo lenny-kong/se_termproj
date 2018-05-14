@@ -6,6 +6,7 @@ import javax.swing.JTextArea;
 
 import compare_algorithm.*;
 import panel_model.Left_overview_panel;
+import panel_model.Text_panel;
 
 public class GUI_data_model {
 	
@@ -29,7 +30,9 @@ public class GUI_data_model {
 	private List<String_object> right_list;
 	private Compare_util_string_list compared_string_object_list;
 	
-	public Left_overview_panel left_overview_panel;
+	private Left_overview_panel left_overview_panel;
+	private Text_panel left_text_panel;
+	private Text_panel right_text_panel;
 	
 	/*
 	 * Constructor
@@ -83,5 +86,29 @@ public class GUI_data_model {
 	}
 	public void setCompared_string_object_list(Compare_util_string_list compared_string_object_list) {
 		this.compared_string_object_list = compared_string_object_list;
+	}
+
+	public Left_overview_panel getLeft_overview_panel() {
+		return left_overview_panel;
+	}
+
+	public void setLeft_overview_panel(Left_overview_panel left_overview_panel) {
+		this.left_overview_panel = left_overview_panel;
+	}
+
+	public Text_panel getLeft_text_panel() {
+		return left_text_panel;
+	}
+
+	public void setLeft_text_panel(Text_panel left_text_panel) {
+		this.left_text_panel = left_text_panel;
+	}
+
+	public Text_panel getRight_text_panel() {
+		return right_text_panel;
+	}
+
+	public void setRight_text_panel(Text_panel right_text_panel) {
+		this.right_text_panel = right_text_panel;
 	}
 }

@@ -1,10 +1,13 @@
 package button_model;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import button_controller.Refresh_button_actionlistener;
 import data_model.GUI_data_model;
+import data_model.Pastel_color;
 import panel_model.Left_overview_panel;
+import panel_model.Text_panel;
 import window_view.Icon_image_load;
 
 public class Refresh_button extends Button_model{
@@ -13,7 +16,9 @@ public class Refresh_button extends Button_model{
 	private final String pushed_image_path = "icon_image/refresh/refresh_push.png";
 	private final String mouseover_image_path = "icon_image/refresh/refresh_mouseover.png";
 	
-	public Left_overview_panel left_overview_panel;
+	private Left_overview_panel left_overview_panel;
+	private Text_panel left_text_panel;
+	private Text_panel right_text_panel;
 	
 	public Refresh_button(GUI_data_model gui_data_model) {
 		//construct and set default image.
@@ -37,13 +42,23 @@ public class Refresh_button extends Button_model{
 				//set button size.
 				this.setPreferredSize(new Dimension(24,24));
 				
-				this.left_overview_panel = gui_data_model.left_overview_panel;
+				//Test implements.
+				this.left_overview_panel = gui_data_model.getLeft_overview_panel();
+				this.left_text_panel = gui_data_model.getLeft_text_panel();
+				this.right_text_panel = gui_data_model.getRight_text_panel();
+				
+				//Add its own ActionListener.
 				this.addActionListener(new Refresh_button_actionlistener());
 	}
 	
-	//Called when Refresh button is pushed.
+	//Called when Refresh button is pushed. for TEST.
 	public void refresh() {
+		//repaint left overview panel.
 		this.left_overview_panel.item_num++;
 		this.left_overview_panel.repaint();
+		
+		//repaint left text panel.
+		this.left_text_panel.highlight_color = Pastel_color.pastel_yellow;
+		this.left_text_panel.repaint();
 	}
 }
