@@ -16,6 +16,7 @@ public class Text_panel extends JPanel{
 		
 	private JTextArea text_area;
 	private JScrollPane scroll_pane;
+	private Background_line_graphics_panel background_line_graphics_panel;
 	public static final int font_size = 18;
 	public static final int maximum_line_in_window = 36;
 	public Color highlight_color = Color.WHITE;
@@ -29,8 +30,13 @@ public class Text_panel extends JPanel{
 		this.text_area.setEditable(false);
 		this.text_area.setOpaque(false);
 		
+		//set background line panel's properties.
+		this.background_line_graphics_panel = new Background_line_graphics_panel(this.text_area);
+		this.background_line_graphics_panel.setLayout(new BorderLayout());
+		this.background_line_graphics_panel.add(this.text_area, BorderLayout.CENTER);
+		
 		//set scroll pane's properties.
-		this.scroll_pane = new JScrollPane(this.text_area);
+		this.scroll_pane = new JScrollPane(this.background_line_graphics_panel);
 		this.scroll_pane.setOpaque(false);
 		this.scroll_pane.getViewport().setOpaque(false);
 		
@@ -38,12 +44,12 @@ public class Text_panel extends JPanel{
 		if(location == GUI_data_model.location.LEFT) 
 		{
 			gui_data_model.setLeft_text_area(this.text_area);
-			gui_data_model.setLeft_text_panel(this);
+			gui_data_model.setLeft_background_graphics_panel(this.background_line_graphics_panel);
 		}
 		else if(location == GUI_data_model.location.RIGHT)
 		{
 			gui_data_model.setRight_text_area(this.text_area);
-			gui_data_model.setRight_text_panel(this);
+			gui_data_model.setRight_background_graphics_panel(this.background_line_graphics_panel);
 		}
 		
 		//Use BorderLayout.
@@ -52,17 +58,5 @@ public class Text_panel extends JPanel{
 		
 		//This color may not be shown cause of BorderLayout.
 		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
-	}
-	
-	@Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        for(int i = 0; i < maximum_line_in_window; i++)
-        {
-        	if( i%2 == 0) g.setColor(Pastel_color.pastel_green);
-        	else g.setColor(this.highlight_color);
-        	//2 for top Gap.
-        	g.fillRect(0, font_size*i + 2, this.getSize().width, font_size);
-        }
 	}
 }

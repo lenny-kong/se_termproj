@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.JTextArea;
 
 import compare_algorithm.*;
+import panel_model.Background_line_graphics_panel;
 import panel_model.Left_overview_panel;
 import panel_model.Text_panel;
 
@@ -31,8 +32,8 @@ public class GUI_data_model {
 	private Compare_util_string_list compared_string_object_list;
 	
 	private Left_overview_panel left_overview_panel;
-	private Text_panel left_text_panel;
-	private Text_panel right_text_panel;
+	private Background_line_graphics_panel left_background_graphics_panel;
+	private Background_line_graphics_panel right_background_graphics_panel;
 	
 	/*
 	 * Constructor
@@ -96,19 +97,19 @@ public class GUI_data_model {
 		this.left_overview_panel = left_overview_panel;
 	}
 
-	public Text_panel getLeft_text_panel() {
-		return left_text_panel;
+	public Background_line_graphics_panel getLeft_background_graphics_panel() {
+		return left_background_graphics_panel;
 	}
 
-	public void setLeft_text_panel(Text_panel left_text_panel) {
-		this.left_text_panel = left_text_panel;
+	public void setLeft_background_graphics_panel(Background_line_graphics_panel left_background_graphics_panel) {
+		this.left_background_graphics_panel = left_background_graphics_panel;
 	}
 
-	public Text_panel getRight_text_panel() {
-		return right_text_panel;
+	public Background_line_graphics_panel getRight_background_graphics_panel() {
+		return right_background_graphics_panel;
 	}
 
-	public void setRight_text_panel(Text_panel right_text_panel) {
-		this.right_text_panel = right_text_panel;
+	public void setRight_background_graphics_panel(Background_line_graphics_panel right_background_graphics_panel) {
+		this.right_background_graphics_panel = right_background_graphics_panel;
 	}
 }
