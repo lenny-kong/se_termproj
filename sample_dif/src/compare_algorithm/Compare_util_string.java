@@ -118,7 +118,7 @@ public class Compare_util_string {
 	/*
 	 * Get Similarity by Syntax Analysis.
 	 */
-	static public float get_similarity_syntax(String target, String source) 
+	static private float get_similarity_syntax(String target, String source) 
 	{
 		float similarity;
 		
@@ -142,7 +142,7 @@ public class Compare_util_string {
 	/*
 	 * Get Similarity by Lexical Analysis.
 	 */
-	static public float get_similarity_lexical(String target, String source) 
+	static private float get_similarity_lexical(String target, String source) 
 	{
 		float similarity;
 		

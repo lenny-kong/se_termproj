@@ -1,9 +1,6 @@
 /panel_model/
 /window_view/
-/Button_Text_Panel/
-/button_text_panel/
-/button_text_generator/
 /button_controller/
 /button_model/
-/common_util_lib/
+/data_model/
 /compare_algorithm/
