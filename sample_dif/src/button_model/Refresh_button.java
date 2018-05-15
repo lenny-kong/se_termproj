@@ -55,7 +55,6 @@ public class Refresh_button extends Button_model{
 	//Called when Refresh button is pushed. for TEST.
 	public void refresh() {
 		//repaint left overview panel.
-		this.left_overview_panel.item_num++;
 		this.left_overview_panel.repaint();
 		
 		//repaint left text panel.

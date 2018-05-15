@@ -9,12 +9,12 @@ import data_model.GUI_data_model;
 
 public class Top_menu_panel extends JPanel{
 
-	public Edit_button edit_button;
-	public Save_button save_button;
-	public Find_button find_button;
-	public Load_button load_button;
-	public Refresh_button refresh_button;
-	public Undo_button undo_button;
+	private Edit_button edit_button;
+	private Save_button save_button;
+	private Find_button find_button;
+	private Load_button load_button;
+	private Refresh_button refresh_button;
+	private Undo_button undo_button;
 	
 	//Own size.
 	public static final int width = 500;

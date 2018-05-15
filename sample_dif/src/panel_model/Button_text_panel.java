@@ -14,8 +14,8 @@ public class Button_text_panel extends JPanel{
 	public static final int height = 700;
 	
 	//Own panels contains.
-	public Button_panel button_panel;
-	public Text_panel text_panel;
+	private Button_panel button_panel;
+	private Text_panel text_panel;
 	
 	//Location.
 	public GUI_data_model.location location;

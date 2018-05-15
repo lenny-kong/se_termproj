@@ -10,16 +10,12 @@ import javax.swing.JTextArea;
 import javax.swing.border.EtchedBorder;
 
 import data_model.GUI_data_model;
-import data_model.Pastel_color;
 
 public class Text_panel extends JPanel{
 		
 	private JTextArea text_area;
 	private JScrollPane scroll_pane;
 	private Background_line_graphics_panel background_line_graphics_panel;
-	public static final int font_size = 18;
-	public static final int maximum_line_in_window = 36;
-	public Color highlight_color = Color.WHITE;
 	
 	public Text_panel(GUI_data_model.location location, GUI_data_model gui_data_model) 
 	{

@@ -8,10 +8,10 @@ import data_model.*;
 
 class MainFrame extends JFrame
 {
-	public Button_text_panel left_button_text_panel;
-	public Button_text_panel right_button_text_panel;
-	public Top_menu_panel top_menu_panel;
-	public Left_overview_panel left_overview_panel;
+	private Button_text_panel left_button_text_panel;
+	private Button_text_panel right_button_text_panel;
+	private Top_menu_panel top_menu_panel;
+	private Left_overview_panel left_overview_panel;
 	
 	private GUI_data_model gui_data_model;
 	
