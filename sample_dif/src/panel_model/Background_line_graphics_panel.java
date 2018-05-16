@@ -32,7 +32,7 @@ public class Background_line_graphics_panel extends JPanel{
         	if( i%2 == 0) g.setColor(Pastel_color.pastel_green);
         	else g.setColor(this.highlight_color);
         	//2 for top Gap.
-        	g.fillRect(0, height_per_line*i + 2, this.getSize().width, height_per_line);
+        	g.fillRect(0, height_per_line*i, this.getSize().width, height_per_line);
         }
 	}
 }
