@@ -8,8 +8,7 @@ public class String_object {
 	public enum Modified_status
 	{
 		NOCHANGE,
-		INSERT,
-		DELETE,
+		DIFFER,
 		SIMILAR,
 	};
 	

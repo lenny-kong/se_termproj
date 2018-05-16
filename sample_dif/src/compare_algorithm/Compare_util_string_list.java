@@ -111,7 +111,7 @@ public class Compare_util_string_list extends Compare_util_string{
 	/*
 	 * Static Function for GUI using.
 	 */
-	public List<String_object> compare(List<String_object> target, List<String_object> source, parsing_option option, float threshold)
+	static public List<String_object> compare(List<String_object> target, List<String_object> source, parsing_option option, float threshold)
 	{
 		float similarity;
 		
@@ -165,13 +165,13 @@ public class Compare_util_string_list extends Compare_util_string{
 	        switch(arr_s[k][l]){
 	        		case LEFT:
 	        		{		
-	        			target_temp.add(new String_object(target.get(k-1).get_string(), String_object.Modified_status.INSERT));
+	        			target_temp.add(new String_object(target.get(k-1).get_string(), String_object.Modified_status.DIFFER));
 	        			k--;
 	        			break;
 	        		}
 	        		case UP:
 	        		{
-	        			target_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	        			target_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 	        			l--;
 	        			break;
 	        		}
@@ -185,13 +185,13 @@ public class Compare_util_string_list extends Compare_util_string{
 	        		{
 	        			if(get_if_other_cross(arr_s, k, l) == arrayDirection.LEFT)
 	        			{
-	        				target_temp.add(new String_object(target.get(k-1).get_string(), String_object.Modified_status.INSERT));
+	        				target_temp.add(new String_object(target.get(k-1).get_string(), String_object.Modified_status.DIFFER));
 		        			k--;
 		        			break;
 	        			}
 	        			else if(get_if_other_cross(arr_s, k, l) == arrayDirection.UP) 
 	        			{
-	        				target_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	        				target_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 		        			l--;
 		        			break;
 	        			}
@@ -208,11 +208,11 @@ public class Compare_util_string_list extends Compare_util_string{
 	    //Set Empty spaces.
 	    for(int i = k-1; i >= 0; i--)
 	    {
-	    	target_temp.add(new String_object(target.get(i).get_string(), String_object.Modified_status.INSERT));
+	    	target_temp.add(new String_object(target.get(i).get_string(), String_object.Modified_status.DIFFER));
 	    }
 	    for(int i = l-1; i >= 0; i--)
 	    {
-	    	target_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	    	target_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 	    }
 	    
 	    //Reverse list.
@@ -282,15 +282,15 @@ public class Compare_util_string_list extends Compare_util_string{
 	        switch(arr_s[k][l]){
 	        		case LEFT:
 	        		{		
-	        			left_temp.add(new String_object(left.get(k-1).get_string(), String_object.Modified_status.INSERT));
-	        			right_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	        			left_temp.add(new String_object(left.get(k-1).get_string(), String_object.Modified_status.DIFFER));
+	        			right_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 	        			k--;
 	        			break;
 	        		}
 	        		case UP:
 	        		{
-	        			left_temp.add(new String_object("", String_object.Modified_status.DELETE));
-	        			right_temp.add(new String_object(right.get(l-1).get_string(), String_object.Modified_status.INSERT));
+	        			left_temp.add(new String_object("", String_object.Modified_status.DIFFER));
+	        			right_temp.add(new String_object(right.get(l-1).get_string(), String_object.Modified_status.DIFFER));
 	        			l--;
 	        			break;
 	        		}
@@ -305,15 +305,15 @@ public class Compare_util_string_list extends Compare_util_string{
 	        		{
 	        			if(get_if_other_cross(arr_s, k, l) == arrayDirection.LEFT)
 	        			{
-	        				left_temp.add(new String_object(left.get(k-1).get_string(), String_object.Modified_status.INSERT));
-		        			right_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	        				left_temp.add(new String_object(left.get(k-1).get_string(), String_object.Modified_status.DIFFER));
+		        			right_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 		        			k--;
 		        			break;
 	        			}
 	        			else if(get_if_other_cross(arr_s, k, l) == arrayDirection.UP) 
 	        			{
-	        				left_temp.add(new String_object("", String_object.Modified_status.DELETE));
-		        			right_temp.add(new String_object(right.get(l-1).get_string(), String_object.Modified_status.INSERT));
+	        				left_temp.add(new String_object("", String_object.Modified_status.DIFFER));
+		        			right_temp.add(new String_object(right.get(l-1).get_string(), String_object.Modified_status.DIFFER));
 		        			l--;
 		        			break;
 	        			}
@@ -330,12 +330,12 @@ public class Compare_util_string_list extends Compare_util_string{
 	    
 	    //Set Empty spaces.
 	    for(int i = k-1; i >= 0; i--) {
-	    	left_temp.add(new String_object(left.get(i).get_string(), String_object.Modified_status.INSERT));
-    		right_temp.add(new String_object("", String_object.Modified_status.DELETE));
+	    	left_temp.add(new String_object(left.get(i).get_string(), String_object.Modified_status.DIFFER));
+    		right_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 	    }
 	    for(int i = l-1; i >= 0; i--) {
-	    	left_temp.add(new String_object("", String_object.Modified_status.DELETE));
-        	right_temp.add(new String_object(right.get(i).get_string(), String_object.Modified_status.INSERT));
+	    	left_temp.add(new String_object("", String_object.Modified_status.DIFFER));
+        	right_temp.add(new String_object(right.get(i).get_string(), String_object.Modified_status.DIFFER));
 	    }
 	    
 	    //Reverse list.
@@ -351,7 +351,7 @@ public class Compare_util_string_list extends Compare_util_string{
 	/*
 	 * Get direction where exact same string in row, or column.
 	 */
-	private arrayDirection get_if_other_cross(arrayDirection [][] arr_s, int k, int l) 
+	private static arrayDirection get_if_other_cross(arrayDirection [][] arr_s, int k, int l) 
 	{	
 		arrayDirection direction = arrayDirection.SIM_CROSS;
 		for(int i = k; i > 0; i--) 
