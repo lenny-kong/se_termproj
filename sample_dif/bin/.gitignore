@@ -1,8 +1,7 @@
+/button_model/
+/common_util_lib/
+/compare_algorithm/
+/data_model/
 /panel_model/
 /window_view/
 /button_controller/
-/button_model/
-/data_model/
-/compare_algorithm/
-/button_text_generator/
-/common_util_lib/
