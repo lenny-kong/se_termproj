@@ -34,4 +34,21 @@ public class Load_ok_button extends JButton {
 		return rightpath.getText();
 	}
 
+	public void display_list_to_textarea() {
+		int cnt;
+		gui_data_model.getLeft_text_area().setText(null);
+		gui_data_model.getRight_text_area().setText(null);
+		for (cnt = 0; cnt < gui_data_model.getLeft_list().size(); cnt++) {
+			gui_data_model.getLeft_text_area().append(gui_data_model.getLeft_list().get(cnt).get_string());
+			gui_data_model.getLeft_text_area().append("\n");
+		}
+		for (cnt = 0; cnt < gui_data_model.getRight_list().size(); cnt++) {
+			gui_data_model.getRight_text_area().append(gui_data_model.getRight_list().get(cnt).get_string());
+			gui_data_model.getRight_text_area().append("\n");
+		}
+		gui_data_model.getLeft_overview_panel().repaint();
+
+		gui_data_model.getLeft_background_graphics_panel().repaint();
+
+	}
 }

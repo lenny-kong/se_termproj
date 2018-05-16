@@ -1,5 +1,6 @@
 package data_model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -28,7 +29,6 @@ public class GUI_data_model {
 	private String right_file_path;
 	private List<String_object> left_list;
 	private List<String_object> right_list;
-	private Compare_util_string_list compared_string_object_list;
 	private JFrame load_frame;
 	private JFrame main_frame;
 
@@ -40,7 +40,9 @@ public class GUI_data_model {
 	 * Constructor
 	 */
 	public GUI_data_model() {
-
+		left_list = new ArrayList<String_object>();
+		right_list = new ArrayList<String_object>();
+		
 	}
 
 	/*
@@ -94,14 +96,6 @@ public class GUI_data_model {
 		this.right_list = right_list;
 	}
 
-	public Compare_util_string_list getCompared_string_object_list() {
-		return compared_string_object_list;
-	}
-
-	public void setCompared_string_object_list(Compare_util_string_list compared_string_object_list) {
-		this.compared_string_object_list = compared_string_object_list;
-	}
-
 	public Left_overview_panel getLeft_overview_panel() {
 		return left_overview_panel;
 	}
@@ -145,4 +139,5 @@ public class GUI_data_model {
 	public void setMain_frame(JFrame main_frame) {
 		this.main_frame = main_frame;
 	}
+
 }

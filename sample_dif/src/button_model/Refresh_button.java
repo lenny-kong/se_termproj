@@ -2,8 +2,11 @@ package button_model;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.StringTokenizer;
 
 import button_controller.Refresh_button_actionlistener;
+import compare_algorithm.Compare_util_string_list;
+import compare_algorithm.String_object;
 import data_model.GUI_data_model;
 import data_model.Pastel_color;
 import panel_model.Background_line_graphics_panel;
@@ -20,6 +23,7 @@ public class Refresh_button extends Button_model {
 	private Left_overview_panel left_overview_panel;
 	private Background_line_graphics_panel left_background_graphics_panel;
 	private Background_line_graphics_panel right_background_graphics_panel;
+	private GUI_data_model gui_data_model;
 
 	public Refresh_button(GUI_data_model gui_data_model) {
 		// construct and set default image.
@@ -47,17 +51,16 @@ public class Refresh_button extends Button_model {
 		this.left_overview_panel = gui_data_model.getLeft_overview_panel();
 		this.left_background_graphics_panel = gui_data_model.getLeft_background_graphics_panel();
 		this.right_background_graphics_panel = gui_data_model.getRight_background_graphics_panel();
-
 		// Add its own ActionListener.
 		this.addActionListener(new Refresh_button_actionlistener());
+
+		this.gui_data_model = gui_data_model;
+	}
+
+	public GUI_data_model getGui_data_model() {
+		return gui_data_model;
 	}
 
 	// Called when Refresh button is pushed. for TEST.
-	public void refresh() {
-		// repaint left overview panel.
-		this.left_overview_panel.repaint();
 
-		// repaint left text panel.
-		this.left_background_graphics_panel.repaint();
-	}
 }

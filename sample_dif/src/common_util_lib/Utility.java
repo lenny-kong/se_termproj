@@ -2,6 +2,8 @@ package common_util_lib;
 
 import java.util.List;
 
+import data_model.GUI_data_model;
+
 public class Utility {
 
 	/*
@@ -64,5 +66,8 @@ public class Utility {
 	static public boolean bool_reverse(boolean input) {
 		return Boolean.logicalXor(input, true);
 	}
-
+	/*
+	 * display list in text area
+	 */
+	
 }
