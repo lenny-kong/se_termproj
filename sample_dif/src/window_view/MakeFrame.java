@@ -1,55 +1,52 @@
 package window_view;
-import java.awt.Color;
-import java.awt.Label;
-import java.awt.event.ComponentEvent; 
-import java.awt.event.ComponentListener;
 
-import javax.swing.*;
-import button_text_generator.*;
-class MainFrame extends JFrame implements ComponentListener{
-	final JFileChooser fc = new JFileChooser();
-	JPanel left_panel;
-	JPanel right_panel;
+
+import javax.swing.JFrame;
+
+import panel_model.*;
+import data_model.*;
+
+class MainFrame extends JFrame
+{
+	private Button_text_panel left_button_text_panel;
+	private Button_text_panel right_button_text_panel;
+	private Top_menu_panel top_menu_panel;
+	private Left_overview_panel left_overview_panel;
+	
+	private GUI_data_model gui_data_model;
+	
+	public static final int width = 1050;
+	public static final int height = 900;
 	
 	public MainFrame() {
-		int width, height;
-		width = 1000;
-		height = 1000;
-		setLayout(null);
-		setSize(width,height);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("SE 18 NOM");
 		
-		left_panel = new Button_text_panel();
-		right_panel = new Button_text_panel();
-		left_panel.setBackground(Color.white);
-		right_panel.setBackground(Color.white);
-		//make both panels
-		this.add(left_panel);
-		this.add(right_panel);
-		//add both panels to main frame
-		this.addComponentListener(this);
-	}
-	public void componentResized(ComponentEvent e) 
-	   {
-		  left_panel.setBounds((int)(getWidth() * 0.2), (int)(getHeight() * 0.1), 
-			      (int)(getWidth() * 0.35), (int)(getHeight() * 0.8));
-	  	  right_panel.setBounds((int)(getWidth() * 0.6), (int)(getHeight() * 0.1), 
-	    	     (int)(getWidth() * 0.35), (int)(getHeight() * 0.8));
-	  	  }
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
+		//Init gui data model.
+		gui_data_model = new GUI_data_model();
 		
-	}
-	@Override
-	public void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
+		//Basic setting for Mainframe.
+		this.setLayout(null);
+		this.setSize(width, height);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		this.setTitle("Test Window");
 		
-	}
-	@Override
-	public void componentHidden(ComponentEvent e) {
-		// TODO Auto-generated method stub
+		//Construct. Order is important!!!!!
+		left_button_text_panel = new Button_text_panel(GUI_data_model.location.LEFT, gui_data_model);
+		right_button_text_panel = new Button_text_panel(GUI_data_model.location.RIGHT, gui_data_model);
+		left_overview_panel = new Left_overview_panel(gui_data_model);
+		top_menu_panel = new Top_menu_panel(gui_data_model);
+
+		//Set location each panels.
+		left_button_text_panel.setBounds(150, 100, Button_text_panel.width, Button_text_panel.height);
+		right_button_text_panel.setBounds(Button_text_panel.width + 200, 100, Button_text_panel.width, Button_text_panel.height);
+		top_menu_panel.setBounds(500, 20, Top_menu_panel.width, Top_menu_panel.height);
+		left_overview_panel.setBounds(10, 100, Left_overview_panel.width, Left_overview_panel.height);
+		
+		//Add to frame.
+		this.add(left_button_text_panel);
+		this.add(right_button_text_panel);
+		this.add(top_menu_panel);
+		this.add(left_overview_panel);
 	}
 }
 
