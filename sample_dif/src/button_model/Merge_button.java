@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import java.io.*;
 import java.util.*;
 
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 import button_controller.Merge_button_actionlistener;
 import compare_algorithm.Compare_util_string;
@@ -52,19 +52,23 @@ public class Merge_button extends Button_model{
 	}
 				
 
-	@SuppressWarnings("null")
+	/*
+	 * merge Left to Right
+	 * */
 	public void mergeLtoR( )  {
 			
 		String tmp; // to read a line in txt file
 		String_object input_line; // to convert string to string_object
 		
+		//to contain textArea contents
 		List<String_object> l_list = new ArrayList<String_object>();
 		List<String_object> r_list = new ArrayList<String_object>();
 		
+		//read Left_TextArea and put text in l_list
 		try {
-			StringReader sr_l = new StringReader(gui_data_model.getLeft_text_area().getText());
-			BufferedReader br_l = new BufferedReader(sr_l);
-			while((tmp=br_l.readLine())!=null) {
+			StringReader sr = new StringReader(gui_data_model.getLeft_text_area().getText());
+			BufferedReader br = new BufferedReader(sr);
+			while((tmp=br.readLine())!=null) {
 				
 		
 				input_line = new String_object(tmp);
@@ -76,12 +80,13 @@ public class Merge_button extends Button_model{
 			e.printStackTrace();
 		}
 	
-
+		
+		//read Right_TextArea and put text in R_list
 		try {
-			StringReader sr_r = new StringReader(gui_data_model.getRight_text_area().getText());
-			BufferedReader br_r = new BufferedReader(sr_r);
+			StringReader sr = new StringReader(gui_data_model.getRight_text_area().getText());
+			BufferedReader br= new BufferedReader(sr);
 			
-			while ((tmp=br_r.readLine())!=null)
+			while ((tmp=br.readLine())!=null)
 			{
 		
 				input_line = new String_object(tmp);
@@ -90,12 +95,14 @@ public class Merge_button extends Button_model{
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			System.out.println("오류");
+				e.printStackTrace();
+		
 			}
 		
-		
+		//set Right_text_area to null
 		gui_data_model.getRight_text_area().setText(null);
+		
+		//merge Left to Right
 		
 		for(int i =0;i<r_list.size();i++)
 		{	
@@ -111,9 +118,8 @@ public class Merge_button extends Button_model{
 				gui_data_model.getRight_text_area().append("\n");
 
 			}
-		
-			
 		}
+		
 		if(l_list.size()>r_list.size())
 		{
 			for(int i=r_list.size();i<l_list.size();i++)
@@ -128,6 +134,5 @@ public class Merge_button extends Button_model{
 		
 		
 	}
-	public GUI_data_model getGui_data_model() {
-		return gui_data_model;}
-	}
+
+}

@@ -13,7 +13,7 @@ public class Merge_button_actionlistener implements ActionListener{
 		// Get source of event and Typecast to Merge_button
 		Merge_button merge_button = (Merge_button)e.getSource();
 		merge_button.mergeLtoR();
-		//merge_button.mergeLtoR(merge_button.getGui_data_model().getLeft_text_area(), merge_button.getGui_data_model().getRight_text_area());
+		
 	
 		
 	}
