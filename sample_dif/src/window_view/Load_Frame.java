@@ -19,7 +19,7 @@ public class Load_Frame extends JFrame {
 	private Find_button right_find;
 	private Load_ok_button ok_set_path_gui_data_model;
 	private GUI_data_model gui_data_model;
-	int width = 400, height = 150;
+	int width = 400, height = 250;
 
 	public Load_Frame(GUI_data_model gui_data_model) {
 		this.gui_data_model = gui_data_model;
@@ -32,17 +32,23 @@ public class Load_Frame extends JFrame {
 
 		setLayout(null);
 		setSize(width, height);
+		setResizable(false);
 		setTitle("File load");
 		setVisible(true);
 		this.setLayout(new GridLayout(3, 1));
 
-		leftpath.setEditable(false);
-		rightpath.setEditable(false);
-
+		leftpath.setEditable(true);
+		rightpath.setEditable(true);
+		
+		//L_path_view.setBackground(Color.red);
+		//R_path_view.setBackground(Color.blue);
+		// Need to modifying panel size.
+		
 		L_path_view.add(leftpath);
 		L_path_view.add(left_find);
 		R_path_view.add(rightpath);
 		R_path_view.add(right_find);
+
 		add(L_path_view);
 		add(R_path_view);
 		add(ok_set_path_gui_data_model);
