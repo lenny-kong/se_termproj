@@ -24,15 +24,17 @@ public class Text_panel extends JPanel {
 		this.text_area = new JTextArea();
 		this.text_area.setEditable(false);
 		this.text_area.setOpaque(false);
+		this.text_area.setBackground(new Color(0,0,0,0));
 
 		// set background line panel's properties.
 		this.background_line_graphics_panel = new Background_line_graphics_panel(this.text_area);
 		this.background_line_graphics_panel.setLayout(new BorderLayout());
 		this.background_line_graphics_panel.add(this.text_area, BorderLayout.CENTER);
 
+		
 		// set scroll pane's properties.
 		this.scroll_pane = new JScrollPane(this.background_line_graphics_panel);
-		this.scroll_pane.setOpaque(false);
+		//this.scroll_pane.setOpaque(false);
 		this.scroll_pane.getViewport().setOpaque(false);
 
 		// Set each text_area, text_panel of GUI data model.

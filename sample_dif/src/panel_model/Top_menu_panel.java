@@ -34,8 +34,8 @@ public class Top_menu_panel extends JPanel {
 		undo_button = new Undo_button(gui_data_model);
 
 		this.add(edit_button);
-		this.add(save_button);
 		this.add(load_button);
+		this.add(save_button);
 		this.add(refresh_button);
 		this.add(undo_button);
 	}

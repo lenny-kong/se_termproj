@@ -11,7 +11,7 @@ import data_model.Pastel_color;
 
 public class Background_line_graphics_panel extends JPanel {
 
-	public int height_per_line = 16;
+	public int height_per_line = 18;
 	public int maximum_line_in_window = 50;
 	public Color highlight_color = Color.WHITE;
 	private JTextArea text_area;
@@ -32,7 +32,7 @@ public class Background_line_graphics_panel extends JPanel {
 			else
 				g.setColor(this.highlight_color);
 			// 2 for top Gap.
-			g.fillRect(0, height_per_line * i, this.getSize().width, height_per_line);
+			g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package window_view;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 import panel_model.*;
 import data_model.*;
@@ -57,6 +58,9 @@ class MainFrame extends JFrame {
 public class MakeFrame {
 
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		}catch(Exception e) {}
 		MainFrame f = new MainFrame();
 		f.setVisible(true);
 	}
