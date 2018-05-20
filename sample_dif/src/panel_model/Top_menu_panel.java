@@ -15,6 +15,8 @@ public class Top_menu_panel extends JPanel{
 	private Load_button load_button;
 	private Refresh_button refresh_button;
 	private Undo_button undo_button;
+	private LRmerge_button lr_merge_button;
+	private RLmerge_button rl_merge_button;
 	
 	//Own size.
 	public static final int width = 500;
@@ -34,6 +36,8 @@ public class Top_menu_panel extends JPanel{
 		load_button = new Load_button(gui_data_model);
 		refresh_button = new Refresh_button(gui_data_model);
 		undo_button = new Undo_button(gui_data_model);
+		lr_merge_button = new LRmerge_button(gui_data_model);
+		rl_merge_button = new RLmerge_button(gui_data_model);
 	
 		this.add(edit_button);
 		this.add(save_button);
@@ -41,5 +45,7 @@ public class Top_menu_panel extends JPanel{
 		this.add(load_button);
 		this.add(refresh_button);
 		this.add(undo_button);
+		this.add(lr_merge_button);
+		this.add(rl_merge_button);
 	}
 }

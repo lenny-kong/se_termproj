@@ -1,4 +1,7 @@
-//new merge button
+//RLmerge_button
+
+// merge button
+
 
 
 package button_model;
@@ -9,7 +12,7 @@ import java.util.*;
 
 import javax.swing.*;
 
-import button_controller.Merge_button_actionlistener;
+import button_controller.RLmerge_button_actionlistener;
 import compare_algorithm.Compare_util_string;
 import compare_algorithm.String_object;
 import data_model.GUI_data_model;
@@ -18,20 +21,20 @@ import panel_model.Text_panel;
 import compare_algorithm.String_object;
 
 
-public class Merge_button extends Button_model{
+public class RLmerge_button extends Button_model{
 
-	private final String default_image_path = "icon_image/merge/merge.png"; 
-	private final String pushed_image_path = "icon_image/merge/merge_push.png";
-	private final String mouseover_image_path = "icon_image/merge/merge_mouseover.png";
+	private final String default_image_path = "icon_image/RLmerge/RLmerge.png"; 
+	private final String pushed_image_path = "icon_image/RLmerge/RLmerge_push.png";
+	private final String mouseover_image_path = "icon_image/RLmerge/RLmerge_mouseover.png";
 
 	
 	private GUI_data_model gui_data_model;
 
 	
-	public Merge_button(GUI_data_model gui_data_model) {
+	public RLmerge_button(GUI_data_model gui_data_model) {
 		//Essential Part.
 				//construct and set default image.
-				super(Icon_image_load.load_image("icon_image/merge/merge.png"));
+				super(Icon_image_load.load_image("icon_image/RLmerge/RLmerge.png"));
 				
 				//load image.
 				this.default_icon = Icon_image_load.load_image(default_image_path);
@@ -39,23 +42,27 @@ public class Merge_button extends Button_model{
 				this.mouseover_icon = Icon_image_load.load_image(mouseover_image_path);
 				
 				//Set tooltip String.
-				this.tooltip_text = "Merge";
-			
+				
+				this.tooltip_text = "Right to Left Merge";
 				//set current icon image default.
 				this.current_icon = default_icon;	
 			
 				//set gui_data_model
 				this.gui_data_model = gui_data_model;
 				//add its own actionlistener.
-				Merge_button_actionlistener actionlistener = new Merge_button_actionlistener();
+				RLmerge_button_actionlistener actionlistener = new RLmerge_button_actionlistener();
 				this.addActionListener(actionlistener);
 	}
 				
+	public GUI_data_model getGui_data_model()
+	{
+		return gui_data_model;
+	}	
 
 	/*
 	 * merge Left to Right
 	 * */
-	public void mergeLtoR( )  {
+	public void merge(JTextArea source,JTextArea target)  {
 			
 		String tmp; // to read a line in txt file
 		String_object input_line; // to convert string to string_object
@@ -66,7 +73,7 @@ public class Merge_button extends Button_model{
 		
 		//read Left_TextArea and put text in l_list
 		try {
-			StringReader sr = new StringReader(gui_data_model.getLeft_text_area().getText());
+			StringReader sr = new StringReader(source.getText());
 			BufferedReader br = new BufferedReader(sr);
 			while((tmp=br.readLine())!=null) {
 				
@@ -83,7 +90,7 @@ public class Merge_button extends Button_model{
 		
 		//read Right_TextArea and put text in R_list
 		try {
-			StringReader sr = new StringReader(gui_data_model.getRight_text_area().getText());
+			StringReader sr = new StringReader(target.getText());
 			BufferedReader br= new BufferedReader(sr);
 			
 			while ((tmp=br.readLine())!=null)
@@ -100,7 +107,7 @@ public class Merge_button extends Button_model{
 			}
 		
 		//set Right_text_area to null
-		gui_data_model.getRight_text_area().setText(null);
+		target.setText(null);
 		
 		//merge Left to Right
 		
@@ -108,14 +115,14 @@ public class Merge_button extends Button_model{
 		{	
 			if(r_list.get(i).get_string().length()!=0)
 			{
-				gui_data_model.getRight_text_area().append(r_list.get(i).get_string());
-				gui_data_model.getRight_text_area().append("\n");
+				target.append(r_list.get(i).get_string());
+				target.append("\n");
 			}
 		
 			else {
 				
-				gui_data_model.getRight_text_area().append(l_list.get(i).get_string());
-				gui_data_model.getRight_text_area().append("\n");
+				target.append(l_list.get(i).get_string());
+				target.append("\n");
 
 			}
 		}
@@ -124,8 +131,8 @@ public class Merge_button extends Button_model{
 		{
 			for(int i=r_list.size();i<l_list.size();i++)
 			{
-				gui_data_model.getRight_text_area().append(l_list.get(i).get_string());
-				gui_data_model.getRight_text_area().append("\n");
+				target.append(l_list.get(i).get_string());
+				target.append("\n");
 			}
 		}
 		
