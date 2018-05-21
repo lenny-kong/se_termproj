@@ -12,62 +12,63 @@ import javax.swing.PopupFactory;
 
 import button_controller.Button_mouselistener;
 
-public abstract class Button_model extends JButton{
-	
+public abstract class Button_model extends JButton {
+
 	protected ImageIcon current_icon;
 	protected ImageIcon default_icon;
 	protected ImageIcon mouseover_icon;
 	protected ImageIcon pushed_icon;
-	
+
 	protected Popup tooltip;
 	protected String tooltip_text;
+
 	/*
 	 * Constructor with name, image, text area.
 	 */
-	public Button_model(Icon icon) 
-	{
+	public Button_model(Icon icon) {
 		super(icon);
-		
-		//make buttons transparent.
+
+		// make buttons transparent.
 		this.setContentAreaFilled(false);
-		//delete borderline.
+		// delete borderline.
 		this.setBorderPainted(false);
-		//set button size.
-		this.setPreferredSize(new Dimension(28,28));
-		//delete default focus.
+		// set button size.
+		this.setPreferredSize(new Dimension(28, 28));
+		// delete default focus.
 		this.setFocusPainted(false);
-		
-		//add mouselistener.
+
+		// add mouselistener.
 		Button_mouselistener mouselistener = new Button_mouselistener();
 		this.addMouseListener(mouselistener);
 	};
 
-	//Set icon image pushed image.
+	// Set icon image pushed image.
 	public void set_pushed_icon() {
 		this.setIcon(this.pushed_icon);
 	}
-	
-	//Set icon image mouseover image.
+
+	// Set icon image mouseover image.
 	public void set_mouseover_icon() {
 		this.setIcon(this.mouseover_icon);
 	}
-	
-	//Reset to past image before mouseover.
+
+	// Reset to past image before mouseover.
 	public void reset_icon() {
 		this.setIcon(this.current_icon);
 	}
-	
-	//show tooltip
+
+	// show tooltip
 	public void show_tooltip(Point p) {
 		JToolTip tip = createToolTip();
 		tip.setTipText(this.tooltip_text);
 		PopupFactory popupFactory = PopupFactory.getSharedInstance();
-		this.tooltip = popupFactory.getPopup(this, tip, p.x +  10, p.y + 10);
+		this.tooltip = popupFactory.getPopup(this, tip, p.x + 10, p.y + 10);
 		this.tooltip.show();
 	}
-	
-	//close tooltip
+
+	// close tooltip
 	public void hide_tooltip() {
 		this.tooltip.hide();
 	}
+
 }
