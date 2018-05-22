@@ -13,7 +13,7 @@ class MainFrame extends JFrame {
 	private Left_overview_panel left_overview_panel;
 
 	private GUI_data_model gui_data_model;
-
+	
 	public static final int width = 1050;
 	public static final int height = 900;
 

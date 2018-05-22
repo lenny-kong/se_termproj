@@ -15,6 +15,8 @@ public class Load_Frame extends JFrame {
 	private Panel R_path_view = new Panel();
 	private JTextArea leftpath = new JTextArea("", 1, 30);
 	private JTextArea rightpath = new JTextArea("", 1, 30);
+	private JLabel left_path_label = new JLabel();
+	private JLabel right_path_label = new JLabel();
 	private Find_button left_find;
 	private Find_button right_find;
 	private Load_ok_button ok_set_path_gui_data_model;
@@ -28,7 +30,7 @@ public class Load_Frame extends JFrame {
 
 		left_find = new Find_button(gui_data_model, leftpath);
 		right_find = new Find_button(gui_data_model, rightpath);
-		ok_set_path_gui_data_model = new Load_ok_button(gui_data_model, "OK", leftpath, rightpath);
+		ok_set_path_gui_data_model = new Load_ok_button(gui_data_model, "OK", leftpath, rightpath, left_path_label, right_path_label);
 
 		setLayout(null);
 		setSize(width, height);

@@ -1,8 +1,12 @@
 package panel_model;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
@@ -12,24 +16,29 @@ import data_model.GUI_data_model;
 public class Button_panel extends JPanel {
 
 	// Other button would be implemented.
-	public JButton button1;
-	public JButton button2;
-	public JButton button3;
-
-	public Button_panel(GUI_data_model gui_data_model) {
+	public JLabel file_name_label;
+	public JLabel file_name_area;
+	public static final int width = 400;
+	public static final int height = 30;
+	
+	public Button_panel(GUI_data_model.location location, GUI_data_model gui_data_model) {
 		super();
-
+		
 		// Use FlowLayout.
-		this.setLayout(new FlowLayout());
+		this.setLayout(new FlowLayout(FlowLayout.LEFT));
+		this.setPreferredSize(new Dimension(width,height));
+		
+		file_name_area = new JLabel("");
 
-		button1 = new JButton("1");
-		button2 = new JButton("2");
-		button3 = new JButton("3");
-
-		this.add(button1);
-		this.add(button2);
-		this.add(button3);
-
+		this.add(file_name_area);
+		
+		if(location == GUI_data_model.location.LEFT) {
+			gui_data_model.setLeft_filepath_area(this.file_name_area);
+		}else if(location == GUI_data_model.location.RIGHT) {
+			gui_data_model.setRight_filepath_area(this.file_name_area);
+		}		
+		// Load 되었을때 파일 이름이 보이게끔.
+		
 		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}
 }

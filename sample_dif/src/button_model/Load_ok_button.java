@@ -3,6 +3,7 @@ package button_model;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import button_controller.Load_ok_button_actionlistener;
@@ -15,10 +16,12 @@ public class Load_ok_button extends Button_model {
 	private final String mouseover_image_path = "icon_image/ok/ok_mouseover.png";
 	
 	private GUI_data_model gui_data_model;
+	private JLabel left_path_label;
+	private JLabel right_path_label;
 	private JTextArea leftpath;
 	private JTextArea rightpath;
 
-	public Load_ok_button(GUI_data_model gui_data_model, String name, JTextArea leftpath, JTextArea rightpath) {
+	public Load_ok_button(GUI_data_model gui_data_model, String name, JTextArea leftpath, JTextArea rightpath, JLabel left_path_label, JLabel right_path_label) {
 		super(Icon_image_load.load_image("icon_image/load/ok.png"));
 
 		// load image.
@@ -54,11 +57,19 @@ public class Load_ok_button extends Button_model {
 	public String getLeftpath() {
 		return leftpath.getText();
 	}
-
 	public String getRightpath() {
 		return rightpath.getText();
 	}
+	
+	public void display_path_to_patharea() {
+		int left_index = gui_data_model.getLeft_file_path().lastIndexOf("\\");
+		int right_index = gui_data_model.getRight_file_path().lastIndexOf("\\");
 
+		gui_data_model.getLeft_path_area().setText("File name : "+gui_data_model.getLeft_file_path().substring(left_index+1));
+		gui_data_model.getRight_path_area().setText("File name : "+gui_data_model.getRight_file_path().substring(right_index+1));
+	}
+	// just display filename.txt , using index "\\"
+	
 	public void display_list_to_textarea() {
 		int cnt;
 		gui_data_model.getLeft_text_area().setText(null);
@@ -74,6 +85,5 @@ public class Load_ok_button extends Button_model {
 		gui_data_model.getLeft_overview_panel().repaint();
 
 		gui_data_model.getLeft_background_graphics_panel().repaint();
-
 	}
 }

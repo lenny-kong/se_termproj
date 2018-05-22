@@ -32,5 +32,4 @@ public class Load_button_actionlistener implements ActionListener {
 		} // warning if there exists work that editing
 
 	}
-
 }
