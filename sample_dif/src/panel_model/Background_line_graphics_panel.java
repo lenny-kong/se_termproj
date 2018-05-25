@@ -24,6 +24,7 @@ public class Background_line_graphics_panel extends JPanel {
 		this.text_area = text_area;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -46,12 +47,15 @@ public class Background_line_graphics_panel extends JPanel {
 
 			for(int i=0;i<compare;i++)
 			{
-				if(gui_data_model.getLeft_list().get(i).get_string().equals(gui_data_model.getRight_list().get(i).get_string()))
-				{
+				//NOCHANGE=O, DIFFER=1, SIMILAR=2
+				if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==0)
 					g.setColor(Pastel_color.pastel_red);
-				}
-				else
+				
+				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==1)
 					g.setColor(Pastel_color.pastel_yellow);
+				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==2)
+					g.setColor(Pastel_color.pastel_green);
+					
 				g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 			}
 			
