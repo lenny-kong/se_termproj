@@ -19,7 +19,7 @@ public class Background_line_graphics_panel extends JPanel {
 	private JTextArea text_area;
 	private boolean refresh_button_click =false;
 	
-	
+
 	public Background_line_graphics_panel(JTextArea text_area) {
 		this.text_area = text_area;
 	}
@@ -72,6 +72,10 @@ public class Background_line_graphics_panel extends JPanel {
 	public void setRefresh_button_false()
 	{
 		this.refresh_button_click = false;
+	}
+	public boolean getRefresh_button()
+	{
+		return this.refresh_button_click;
 	}
 	public void setGui_data_model(GUI_data_model gui_data_model) {
 		this.gui_data_model = gui_data_model;
