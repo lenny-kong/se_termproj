@@ -1,9 +1,3 @@
-//RLmerge_button
-
-// merge button
-
-
-
 package button_model;
 
 import java.awt.Dimension;
@@ -36,6 +30,7 @@ public class RLmerge_button extends Button_model{
 				//construct and set default image.
 				super(Icon_image_load.load_image("icon_image/RLmerge/RLmerge.png"));
 				
+				
 				//load image.
 				this.default_icon = Icon_image_load.load_image(default_image_path);
 				this.pushed_icon = Icon_image_load.load_image(pushed_image_path);
@@ -46,7 +41,7 @@ public class RLmerge_button extends Button_model{
 				this.tooltip_text = "Right to Left Merge";
 				//set current icon image default.
 				this.current_icon = default_icon;	
-			
+			 
 				//set gui_data_model
 				this.gui_data_model = gui_data_model;
 				//add its own actionlistener.
@@ -63,7 +58,7 @@ public class RLmerge_button extends Button_model{
 	 * merge Left to Right
 	 * */
 	public void merge(JTextArea source,JTextArea target)  {
-			
+		
 		String tmp; // to read a line in txt file
 		String_object input_line; // to convert string to string_object
 		
@@ -136,7 +131,11 @@ public class RLmerge_button extends Button_model{
 			}
 		}
 		
-				
+		//change background color.
+		gui_data_model.getLeft_background_graphics_panel().setRefresh_button_false();
+		gui_data_model.getRight_background_graphics_panel().setRefresh_button_false();
+		gui_data_model.getLeft_background_graphics_panel().repaint();
+		gui_data_model.getRight_background_graphics_panel().repaint();				
 		
 		
 		
