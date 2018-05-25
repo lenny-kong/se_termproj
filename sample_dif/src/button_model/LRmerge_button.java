@@ -1,3 +1,4 @@
+
 package button_model;
 
 import java.awt.Dimension;
@@ -108,16 +109,16 @@ public class LRmerge_button extends Button_model{
 		
 		for(int i =0;i<r_list.size();i++)
 		{	
-			if(r_list.get(i).get_string().length()!=0)
+			if(r_list.get(i).get_string().equals(""))
 			{
-				target.append(r_list.get(i).get_string());
+				target.append(l_list.get(i).get_string());
 				target.append("\n");
 			}
 		
 			else {
-				
-				target.append(l_list.get(i).get_string());
+				target.append(r_list.get(i).get_string());
 				target.append("\n");
+				
 
 			}
 		}
