@@ -69,8 +69,8 @@ public class Edit_button extends Button_model {
 		right_text_area.setEditable(mode);
 		if(mode)
 		{
-			gui_data_model.getLeft_background_graphics_panel().setRefresh_button_false();
-			gui_data_model.getRight_background_graphics_panel().setRefresh_button_false();
+			gui_data_model.getLeft_background_graphics_panel().setRefresh_button(false);
+			gui_data_model.getRight_background_graphics_panel().setRefresh_button(false);
 			gui_data_model.getLeft_background_graphics_panel().repaint();
 			gui_data_model.getRight_background_graphics_panel().repaint();
 		}

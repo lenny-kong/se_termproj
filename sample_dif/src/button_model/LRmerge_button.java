@@ -132,8 +132,8 @@ public class LRmerge_button extends Button_model{
 			}
 		}
 		//change background color.
-		gui_data_model.getLeft_background_graphics_panel().setRefresh_button_false();
-		gui_data_model.getRight_background_graphics_panel().setRefresh_button_false();
+		gui_data_model.getLeft_background_graphics_panel().setRefresh_button(false);
+		gui_data_model.getRight_background_graphics_panel().setRefresh_button(false);
 		gui_data_model.getLeft_background_graphics_panel().repaint();
 		gui_data_model.getRight_background_graphics_panel().repaint();		
 		

@@ -18,7 +18,7 @@ public class Background_line_graphics_panel extends JPanel {
 	public Color highlight_color = Color.WHITE;
 	private JTextArea text_area;
 	private boolean refresh_button_click =false;
-	
+
 
 	public Background_line_graphics_panel(JTextArea text_area) {
 		this.text_area = text_area;
@@ -65,13 +65,10 @@ public class Background_line_graphics_panel extends JPanel {
 
 	
 	}
-	public void setRefresh_button_ture()
+	public void setRefresh_button(boolean refresh_button_click)
 	{
-		this.refresh_button_click = true;
-	}
-	public void setRefresh_button_false()
-	{
-		this.refresh_button_click = false;
+		this.refresh_button_click =refresh_button_click; 
+		
 	}
 	public boolean getRefresh_button()
 	{
