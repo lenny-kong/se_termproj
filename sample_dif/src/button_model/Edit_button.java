@@ -14,12 +14,12 @@ public class Edit_button extends Button_model {
 	private boolean is_pushed = false;
 	private JTextArea left_text_area;
 	private JTextArea right_text_area;
-
+	private GUI_data_model gui_data_model;
 	// Image file path(Essential Part).
 	private final String default_image_path = "icon_image/edit/edit.png";
 	private final String pushed_image_path = "icon_image/edit/edit_push.png";
 	private final String mouseover_image_path = "icon_image/edit/edit_mouseover.png";
-
+	
 	/*
 	 * Constructor with name, image, text area.
 	 */
@@ -43,6 +43,7 @@ public class Edit_button extends Button_model {
 		// get each textarea to control.
 		this.left_text_area = gui_data_model.getLeft_text_area();
 		this.right_text_area = gui_data_model.getRight_text_area();
+		this.gui_data_model = gui_data_model;
 
 		// add its own actionlistener.
 		Edit_button_actionlistener actionlistener = new Edit_button_actionlistener();
@@ -55,8 +56,10 @@ public class Edit_button extends Button_model {
 	public void button_toggle() {
 		this.is_pushed = Utility.bool_reverse(is_pushed);
 		set_edit_mode(is_pushed);
-		change_image();
+		change_image();	
+		
 	}
+
 
 	/*
 	 * set mode.
@@ -64,6 +67,14 @@ public class Edit_button extends Button_model {
 	private void set_edit_mode(boolean mode) {
 		left_text_area.setEditable(mode);
 		right_text_area.setEditable(mode);
+		if(mode)
+		{
+			gui_data_model.getLeft_background_graphics_panel().setRefresh_button_false();
+			gui_data_model.getRight_background_graphics_panel().setRefresh_button_false();
+			gui_data_model.getLeft_background_graphics_panel().repaint();
+			gui_data_model.getRight_background_graphics_panel().repaint();
+		}
+		
 	}
 
 	/*
@@ -76,6 +87,9 @@ public class Edit_button extends Button_model {
 		} else {
 			this.current_icon = this.pushed_icon;
 			this.setIcon(this.current_icon);
+					
+			
 		}
 	}
+
 }
