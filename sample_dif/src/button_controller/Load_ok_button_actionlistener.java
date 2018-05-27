@@ -14,15 +14,15 @@ public class Load_ok_button_actionlistener implements ActionListener {
 		Load_ok_button load_ok_button = (Load_ok_button) e.getSource();
 		load_ok_button.getGui_data_model().setLeft_file_path(load_ok_button.getLeftpath());
 		load_ok_button.getGui_data_model().setRight_file_path(load_ok_button.getRightpath());
-		
+
 		load_ok_button.input_file_data_to_list();
-		
+
 		load_ok_button.display_list_to_textarea();
-		//update modified data
+		// update modified data
 		load_ok_button.display_path_to_patharea();
-		//update filepath
+		// update filepath
 
 		load_ok_button.getGui_data_model().getLoad_frame().dispose();
-		//close load frame
+		// close load frame
 	}
 }

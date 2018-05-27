@@ -18,15 +18,15 @@ public class Refresh_button_actionlistener implements ActionListener {
 
 		gui_data_model.getLeft_background_graphics_panel().setRefresh_button_ture();
 		gui_data_model.getRight_background_graphics_panel().setRefresh_button_ture();
-		
+
 		refresh_button.tokenize_compare_list();
 		refresh_button.compare_list();
-		
-		//set Left,right_background_panel's gui_data_model
+
+		// set Left,right_background_panel's gui_data_model
 		gui_data_model.getLeft_background_graphics_panel().setGui_data_model(this.gui_data_model);
 		gui_data_model.getRight_background_graphics_panel().setGui_data_model(this.gui_data_model);
-		
+
 		refresh_button.print_list_text_area();
-		
+
 	}
 }

@@ -7,18 +7,16 @@ import java.awt.event.ActionListener;
 
 import button_model.RLmerge_button;
 import data_model.GUI_data_model;
-public class RLmerge_button_actionlistener implements ActionListener{
+
+public class RLmerge_button_actionlistener implements ActionListener {
 	private GUI_data_model gui_data_model;
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// Get source of event and Typecast to Merge_button
-		RLmerge_button rl_merge_button = (RLmerge_button)e.getSource();
+		RLmerge_button rl_merge_button = (RLmerge_button) e.getSource();
 		this.gui_data_model = rl_merge_button.getGui_data_model();
-		rl_merge_button.merge(gui_data_model.getRight_text_area(),gui_data_model.getLeft_text_area());
-		
-		
-	
-		
+		rl_merge_button.merge(gui_data_model.getRight_text_area(), gui_data_model.getLeft_text_area());
+
 	}
 }
