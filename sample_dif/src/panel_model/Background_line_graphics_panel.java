@@ -73,5 +73,6 @@ public class Background_line_graphics_panel extends JPanel {
 		this.gui_data_model = gui_data_model;
 		
 	}
+
 	
 }
