@@ -60,7 +60,7 @@ public class Save_button extends Button_model {
 		String fileNameTemp;
 		// create file dialog
 		JFileChooser fileChooser = new JFileChooser();
-
+		fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
 		// create file filter
 		fileChooser.setAcceptAllFileFilterUsed(false);
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT (*.txt)", "txt");
