@@ -1,9 +1,11 @@
 package data_model;
 
+import java.awt.Label;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import compare_algorithm.*;
@@ -31,6 +33,8 @@ public class GUI_data_model {
 	private List<String_object> right_list;
 	private JFrame load_frame;
 	private JFrame main_frame;
+	private JLabel left_filepath_area;
+	private JLabel right_filepath_area;
 
 	private Left_overview_panel left_overview_panel;
 	private Background_line_graphics_panel left_background_graphics_panel;
@@ -42,7 +46,6 @@ public class GUI_data_model {
 	public GUI_data_model() {
 		left_list = new ArrayList<String_object>();
 		right_list = new ArrayList<String_object>();
-		
 	}
 
 	/*
@@ -51,33 +54,49 @@ public class GUI_data_model {
 	public JTextArea getLeft_text_area() {
 		return left_text_area;
 	}
-
+	
 	public void setLeft_text_area(JTextArea left_text_area) {
 		this.left_text_area = left_text_area;
 	}
-
+	
 	public JTextArea getRight_text_area() {
 		return right_text_area;
 	}
-
+	
 	public void setRight_text_area(JTextArea right_text_area) {
 		this.right_text_area = right_text_area;
 	}
-
+	
 	public String getRight_file_path() {
 		return right_file_path;
 	}
-
+	
 	public void setRight_file_path(String right_file_path) {
 		this.right_file_path = right_file_path;
 	}
-
+	
 	public String getLeft_file_path() {
 		return left_file_path;
 	}
-
+	
 	public void setLeft_file_path(String left_file_path) {
 		this.left_file_path = left_file_path;
+	}
+	
+	public JLabel getLeft_path_area() {
+		return left_filepath_area;
+	}
+	
+	public void setLeft_filepath_area(JLabel left_filepath_area) {
+		this.left_filepath_area = left_filepath_area;
+	}
+	
+	public JLabel getRight_path_area() {
+		return right_filepath_area;
+	}
+	
+	public void setRight_filepath_area(JLabel right_filepath_area) {
+		this.right_filepath_area = right_filepath_area;
 	}
 
 	public List<String_object> getLeft_list() {

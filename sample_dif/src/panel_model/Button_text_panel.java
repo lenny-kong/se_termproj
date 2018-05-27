@@ -25,7 +25,7 @@ public class Button_text_panel extends JPanel {
 
 		this.location = location;
 		this.text_panel = new Text_panel(location, gui_data_model);
-		this.button_panel = new Button_panel(gui_data_model);
+		this.button_panel = new Button_panel(location, gui_data_model);
 
 		// Use borderLayout.
 		this.setLayout(new BorderLayout(0, 0));
