@@ -18,12 +18,13 @@ public class Background_line_graphics_panel extends JPanel {
 	public Color highlight_color = Color.WHITE;
 	private JTextArea text_area;
 	private boolean refresh_button_click =false;
-	
-	
+
+
 	public Background_line_graphics_panel(JTextArea text_area) {
 		this.text_area = text_area;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -46,12 +47,15 @@ public class Background_line_graphics_panel extends JPanel {
 
 			for(int i=0;i<compare;i++)
 			{
-				if(gui_data_model.getLeft_list().get(i).get_string().equals(gui_data_model.getRight_list().get(i).get_string()))
-				{
+				//NOCHANGE=O, DIFFER=1, SIMILAR=2
+				if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==0)
 					g.setColor(Pastel_color.pastel_red);
-				}
-				else
+				
+				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==1)
 					g.setColor(Pastel_color.pastel_yellow);
+				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==2)
+					g.setColor(Pastel_color.pastel_green);
+					
 				g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 			}
 			
@@ -61,18 +65,18 @@ public class Background_line_graphics_panel extends JPanel {
 
 	
 	}
-	public void setRefresh_button_ture()
+	public void setRefresh_button(boolean refresh_button_click)
 	{
-		this.refresh_button_click = true;
+		this.refresh_button_click =refresh_button_click; 
+		
 	}
-	public void setRefresh_button_false()
+	public boolean getRefresh_button()
 	{
-		this.refresh_button_click = false;
+		return this.refresh_button_click;
 	}
 	public void setGui_data_model(GUI_data_model gui_data_model) {
 		this.gui_data_model = gui_data_model;
 		
 	}
-
 	
 }

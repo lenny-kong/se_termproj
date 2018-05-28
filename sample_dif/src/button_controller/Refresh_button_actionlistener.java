@@ -16,8 +16,8 @@ public class Refresh_button_actionlistener implements ActionListener {
 		// Call toggle function of button_model.
 		this.gui_data_model = refresh_button.getGui_data_model();
 
-		gui_data_model.getLeft_background_graphics_panel().setRefresh_button_ture();
-		gui_data_model.getRight_background_graphics_panel().setRefresh_button_ture();
+		gui_data_model.getLeft_background_graphics_panel().setRefresh_button(true);
+		gui_data_model.getRight_background_graphics_panel().setRefresh_button(true);
 
 		refresh_button.tokenize_compare_list();
 		refresh_button.compare_list();

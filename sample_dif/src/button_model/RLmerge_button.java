@@ -108,16 +108,16 @@ public class RLmerge_button extends Button_model{
 		
 		for(int i =0;i<r_list.size();i++)
 		{	
-			if(r_list.get(i).get_string().length()!=0)
+			if(r_list.get(i).get_string().equals(""))
 			{
-				target.append(r_list.get(i).get_string());
+				target.append(l_list.get(i).get_string());
 				target.append("\n");
 			}
 		
 			else {
-				
-				target.append(l_list.get(i).get_string());
+				target.append(r_list.get(i).get_string());
 				target.append("\n");
+			
 
 			}
 		}
@@ -132,8 +132,8 @@ public class RLmerge_button extends Button_model{
 		}
 		
 		//change background color.
-		gui_data_model.getLeft_background_graphics_panel().setRefresh_button_false();
-		gui_data_model.getRight_background_graphics_panel().setRefresh_button_false();
+		gui_data_model.getLeft_background_graphics_panel().setRefresh_button(false);
+		gui_data_model.getRight_background_graphics_panel().setRefresh_button(false);
 		gui_data_model.getLeft_background_graphics_panel().repaint();
 		gui_data_model.getRight_background_graphics_panel().repaint();				
 		
