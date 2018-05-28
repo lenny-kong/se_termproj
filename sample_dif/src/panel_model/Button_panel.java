@@ -28,7 +28,7 @@ public class Button_panel extends JPanel {
 		this.setLayout(new FlowLayout(FlowLayout.LEFT));
 		this.setPreferredSize(new Dimension(width,height));
 		
-		file_name_area = new JLabel("");
+		file_name_area = new JLabel("File name : Not Selected");
 
 		this.add(file_name_area);
 		

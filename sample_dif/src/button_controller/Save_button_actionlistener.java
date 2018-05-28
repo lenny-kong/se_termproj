@@ -31,6 +31,8 @@ public class Save_button_actionlistener implements ActionListener {
 			try {
 				save_button.text_to_list(1);
 				if (file != null) {
+					gui_data_model.setLeft_name(file.getName());
+					gui_data_model.getLeft_path_area().setText("File name : " + gui_data_model.getLeft_name());
 					save_button.savefile(file, gui_data_model.getLeft_list());
 				}
 			} catch (IOException e1) {
@@ -43,6 +45,8 @@ public class Save_button_actionlistener implements ActionListener {
 			try {
 				save_button.text_to_list(0);
 				if (file != null) {
+					gui_data_model.setRight_name(file.getName());
+					gui_data_model.getRight_path_area().setText("File name : " + gui_data_model.getRight_name());
 					save_button.savefile(file, gui_data_model.getRight_list());
 				}
 			} catch (IOException e1) {

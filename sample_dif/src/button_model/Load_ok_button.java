@@ -101,8 +101,11 @@ public class Load_ok_button extends Button_model {
 		gui_data_model.setLeft_name(gui_data_model.getLeft_file_path().substring(left_index + 1));
 		gui_data_model.setRight_name(gui_data_model.getRight_file_path().substring(right_index + 1));
 
-		gui_data_model.getLeft_path_area().setText("File name : " + gui_data_model.getLeft_name());
-		gui_data_model.getRight_path_area().setText("File name : " + gui_data_model.getRight_name());
+		if (gui_data_model.getLeft_name().length()!=0)
+			gui_data_model.getLeft_path_area().setText("File name : " + gui_data_model.getLeft_name());
+		
+		if (gui_data_model.getRight_name().length()!=0)
+			gui_data_model.getRight_path_area().setText("File name : " + gui_data_model.getRight_name());
 	}
 	// just display filename.txt , using index "\\"
 
