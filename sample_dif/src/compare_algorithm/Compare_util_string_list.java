@@ -19,7 +19,6 @@ public class Compare_util_string_list extends Compare_util_string {
 	private int left_list_size; // Left file list(Total String) size
 	private int right_list_size; // Right file list(Total String) size
 	private int list_size; //
-
 	/*
 	 * Constructor with Parsing option, threshold.
 	 */
@@ -87,14 +86,14 @@ public class Compare_util_string_list extends Compare_util_string {
 		} catch (IOException e) {
 
 		}
-		set_LCS_string_list(left_list, right_list, parsing_option.LINE, 1.0f);
+		set_LCS_string_list(left_list, right_list, parsing_option.LEXICAL, 0.89f);
 	}
 
 	/*
 	 * Constructor with 2 string list.
 	 */
 	public Compare_util_string_list(List<String_object> left, List<String_object> right) {
-		set_LCS_string_list(left, right, parsing_option.LINE, 1.0f);
+		set_LCS_string_list(left, right, parsing_option.LEXICAL,0.89f);
 	}
 
 	/*
