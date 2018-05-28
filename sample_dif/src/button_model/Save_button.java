@@ -6,7 +6,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -104,6 +106,30 @@ public class Save_button extends Button_model {
 			bw.newLine();
 		}
 		bw.close();
+	}
+	public void text_to_list(int value){		
+		if(value == 1) {
+			StringTokenizer left_token = new StringTokenizer(gui_data_model.getLeft_text_area().getText(), "\n");
+			// tokenize for insert that  data in list
+			int cnt;
+			gui_data_model.getLeft_list().clear();
+			// delete before data in left or right list
+			
+			for (cnt = left_token.countTokens(); cnt > 0; cnt--) {
+				gui_data_model.getLeft_list().add(new String_object(left_token.nextToken()));
+			}
+		}
+		if(value == 0) {
+			StringTokenizer right_token = new StringTokenizer(gui_data_model.getRight_text_area().getText(), "\n");
+			// tokenize for insert that  data in list
+			int cnt;
+			gui_data_model.getRight_list().clear();
+			// delete before data in left or right list
+			
+			for (cnt = right_token.countTokens(); cnt > 0; cnt--) {
+				gui_data_model.getLeft_list().add(new String_object(right_token.nextToken()));
+			}
+		}
 	}
 
 	public GUI_data_model getGui_data_model() {
