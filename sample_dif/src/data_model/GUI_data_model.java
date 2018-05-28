@@ -35,6 +35,8 @@ public class GUI_data_model {
 	private JFrame main_frame;
 	private JLabel left_filepath_area;
 	private JLabel right_filepath_area;
+	private String left_name;
+	private String right_name;
 
 	private Left_overview_panel left_overview_panel;
 	private Background_line_graphics_panel left_background_graphics_panel;
@@ -46,6 +48,10 @@ public class GUI_data_model {
 	public GUI_data_model() {
 		left_list = new ArrayList<String_object>();
 		right_list = new ArrayList<String_object>();
+		left_file_path = "";
+		right_file_path = "";
+		left_name = "";
+		right_name = "";
 	}
 
 	/*
@@ -157,6 +163,22 @@ public class GUI_data_model {
 
 	public void setMain_frame(JFrame main_frame) {
 		this.main_frame = main_frame;
+	}
+
+	public String getRight_name() {
+		return right_name;
+	}
+
+	public void setRight_name(String right_name) {
+		this.right_name = right_name;
+	}
+
+	public String getLeft_name() {
+		return left_name;
+	}
+
+	public void setLeft_name(String left_name) {
+		this.left_name = left_name;
 	}
 
 }
