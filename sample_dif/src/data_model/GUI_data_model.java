@@ -48,6 +48,10 @@ public class GUI_data_model {
 	public GUI_data_model() {
 		left_list = new ArrayList<String_object>();
 		right_list = new ArrayList<String_object>();
+		left_file_path = "";
+		right_file_path = "";
+		left_name = "";
+		right_name = "";
 	}
 
 	/*
