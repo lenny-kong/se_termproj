@@ -41,6 +41,9 @@ public class Background_line_graphics_panel extends JPanel {
 
 				// 2 for top Gap.
 				g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
+				g.setColor(Color.black);
+				g.drawString(Integer.toString(i+1), 2, height_per_line * (i+1));
+			
 		
 			}
 		//after refresh_button is pressed
@@ -52,23 +55,38 @@ public class Background_line_graphics_panel extends JPanel {
 			for(int i=0;i<compare;i++)
 			{
 				//NOCHANGE=O, DIFFER=1, SIMILAR=2
-				if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==0)
+				if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==0) {
 					g.setColor(Pastel_color.pastel_red);
+					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
+					g.setColor(Color.black);
+					g.drawString(Integer.toString(i+1), 2, height_per_line * (i+1));
+				}
 				
-				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==1)
+				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==1){
 					g.setColor(Pastel_color.pastel_yellow);
-				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==2)
+					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
+					g.setColor(Color.red);
+					g.drawString(Integer.toString(i+1), 2, height_per_line * (i+1));
+									}
+				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==2) {
 					g.setColor(Pastel_color.pastel_green);
+					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
+					g.setColor(Color.green);
+					g.drawString(Integer.toString(i+1), 2, height_per_line * (i+1));
+				}
+				
+			 }
+				
 					
-				g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
-			}
-			
 		
 		}
+			
+		
+	}
 		
 
 	
-	}
+
 	public void setRefresh_button(boolean refresh_button_click)
 	{
 		this.refresh_button_click =refresh_button_click; 
