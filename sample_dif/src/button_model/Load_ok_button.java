@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import button_controller.Load_ok_button_actionlistener;
 import compare_algorithm.String_object;
@@ -18,16 +19,15 @@ public class Load_ok_button extends Button_model {
 	private final String default_image_path = "icon_image/ok/ok.png";
 	private final String pushed_image_path = "icon_image/ok/ok_push.png";
 	private final String mouseover_image_path = "icon_image/ok/ok_mouseover.png";
-
+	
 	private GUI_data_model gui_data_model;
 	private JLabel left_path_label;
 	private JLabel right_path_label;
-	private JTextArea leftpath;
-	private JTextArea rightpath;
+	private JTextField leftpath;
+	private JTextField rightpath;
 
-	public Load_ok_button(GUI_data_model gui_data_model, String name, JTextArea leftpath, JTextArea rightpath,
-			JLabel left_path_label, JLabel right_path_label) {
-		super(Icon_image_load.load_image("icon_image/load/ok.png"));
+	public Load_ok_button(GUI_data_model gui_data_model, String name, JTextField leftpath, JTextField rightpath) {
+		super(Icon_image_load.load_image("icon_image/ok/ok.png"));
 
 		// load image.
 		this.default_icon = Icon_image_load.load_image(default_image_path);
@@ -48,9 +48,10 @@ public class Load_ok_button extends Button_model {
 		this.setPreferredSize(new Dimension(24, 24));
 
 		this.gui_data_model = gui_data_model;
+		
 		this.leftpath = leftpath;
 		this.rightpath = rightpath;
-
+		
 		Load_ok_button_actionlistener actionlistener = new Load_ok_button_actionlistener();
 		this.addActionListener(actionlistener);
 	}
@@ -62,26 +63,31 @@ public class Load_ok_button extends Button_model {
 	public String getLeftpath() {
 		return leftpath.getText();
 	}
-
 	public String getRightpath() {
 		return rightpath.getText();
 	}
-
+	
+	
 	public void input_file_data_to_list() {
 		String tmp; // to read a line in txt file
-		String_object input_line; // to convert string to string_object
+		String_object input_line = null; // to convert string to string_object
 
 		try {
 			BufferedReader left_in_file = new BufferedReader(new FileReader(gui_data_model.getLeft_file_path()));
+			System.out.println("length = "+gui_data_model.getLeft_file_path().length());
+			if(gui_data_model.getLeft_file_path()==null) {
+				input_line = new String_object(null);
+				gui_data_model.getLeft_list().add(null);
+				System.out.println("nullÀÔ´Ï´ç");
+			}
 			while ((tmp = left_in_file.readLine()) != null) {
 				input_line = new String_object(tmp); // convert string to string_object
 				gui_data_model.getLeft_list().add(input_line); // add list
 			}
+			
 			left_in_file.close();
 		} catch (IOException e) {
-
 		}
-
 		try {
 			BufferedReader right_in_file = new BufferedReader(new FileReader(gui_data_model.getRight_file_path()));
 			while ((tmp = right_in_file.readLine()) != null) {
@@ -90,25 +96,29 @@ public class Load_ok_button extends Button_model {
 			}
 			right_in_file.close();
 		} catch (IOException e) {
-
 		}
 	}
-
+	
 	public void display_path_to_patharea() {
 		int left_index = gui_data_model.getLeft_file_path().lastIndexOf("\\");
 		int right_index = gui_data_model.getRight_file_path().lastIndexOf("\\");
-
-		gui_data_model.setLeft_name(gui_data_model.getLeft_file_path().substring(left_index + 1));
-		gui_data_model.setRight_name(gui_data_model.getRight_file_path().substring(right_index + 1));
-
-		if (gui_data_model.getLeft_name().length()!=0)
-			gui_data_model.getLeft_path_area().setText("File name : " + gui_data_model.getLeft_name());
 		
-		if (gui_data_model.getRight_name().length()!=0)
-			gui_data_model.getRight_path_area().setText("File name : " + gui_data_model.getRight_name());
+		if(left_index == -1){
+			gui_data_model.getLeft_path_label().setText(" File Not Selected.");
+			}
+		if(left_index != -1) {
+			gui_data_model.getLeft_path_label().setText(" File name : "+gui_data_model.getLeft_file_path().substring(left_index+1));
+			}
+		if(right_index == -1) {
+			gui_data_model.getRight_path_label().setText(" File Not Selected.");
+			}
+		if(right_index != -1) {
+			gui_data_model.getRight_path_label().setText(" File name : "+gui_data_model.getRight_file_path().substring(right_index+1));
+			}	
 	}
 	// just display filename.txt , using index "\\"
-
+	// if file does not selected -> display "File not Selected."
+	
 	public void display_list_to_textarea() {
 		int cnt;
 		gui_data_model.getLeft_text_area().setText(null);
@@ -121,7 +131,6 @@ public class Load_ok_button extends Button_model {
 			gui_data_model.getRight_text_area().append(gui_data_model.getRight_list().get(cnt).get_string());
 			gui_data_model.getRight_text_area().append("\n");
 		}
-		gui_data_model.getLeft_overview_panel().repaint();
 
 		gui_data_model.getLeft_background_graphics_panel().repaint();
 	}

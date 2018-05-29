@@ -1,3 +1,8 @@
+//LRmerge_button
+
+// merge button
+
+
 
 package button_model;
 
@@ -17,7 +22,7 @@ import compare_algorithm.String_object;
 
 
 public class LRmerge_button extends Button_model{
- 
+
 	private final String default_image_path = "icon_image/LRmerge/LRmerge.png"; 
 	private final String pushed_image_path = "icon_image/LRmerge/LRmerge_push.png";
 	private final String mouseover_image_path = "icon_image/LRmerge/LRmerge_mouseover.png";
@@ -109,16 +114,16 @@ public class LRmerge_button extends Button_model{
 		
 		for(int i =0;i<r_list.size();i++)
 		{	
-			if(r_list.get(i).get_string().equals(""))
+			if(r_list.get(i).get_string().length()!=0)
 			{
-				target.append(l_list.get(i).get_string());
+				target.append(r_list.get(i).get_string());
 				target.append("\n");
 			}
 		
 			else {
-				target.append(r_list.get(i).get_string());
-				target.append("\n");
 				
+				target.append(l_list.get(i).get_string());
+				target.append("\n");
 
 			}
 		}
@@ -131,11 +136,6 @@ public class LRmerge_button extends Button_model{
 				target.append("\n");
 			}
 		}
-		//change background color.
-		gui_data_model.getLeft_background_graphics_panel().setRefresh_button(false);
-		gui_data_model.getRight_background_graphics_panel().setRefresh_button(false);
-		gui_data_model.getLeft_background_graphics_panel().repaint();
-		gui_data_model.getRight_background_graphics_panel().repaint();		
 		
 				
 		
