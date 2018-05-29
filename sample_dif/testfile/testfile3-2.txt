@@ -1,0 +1,24 @@
+<span  class="separator">
+</span>
+<a href="/int1/ko/about.html>Google 정보
+</a>
+<span class = "separator">
+</span>
+<a href ="http://www.google.com/ncr">Google.com in English
+</a>
+</div>
+<div id="copyright">&copy:2009 -
+<a href="http://www.google.com/int1/ko/privacy.html">개인정보
+</a>
+</div>
+</div>
+</div>
+<script src="/ig/f/bwakDi9Upto/int1/ALL_kr/homepage.js">
+</script>
+</body>
+<script>if (!window.google) 
+{window.google=
+{}; }if (!window.google.KHL)
+{window.google.KHL='ko'; } 
+</script>
+</html>

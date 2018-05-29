@@ -1,0 +1,20 @@
+OUTPUT
+result [studentnumber] ( inputs ) -> ( outputs )
+{
+input = reshape(inputs, [-1, 28, 28, 1]);kernel1 = tf.Variable(tf.random_normal([3, 3, 1, 64]));
+bias1 = tf.Variable(tf.random_normal([64]));
+conv1 = tf.nn.conv2d(input);
+add1 = add(conv1, bias1);
+relu1 = tf.nn.relu(add1);
+pool1 = max_pool(relu1);
+kernel2 = tf.Variable(tf.random_normal([3, 3, 64, 128])); 
+bias2 = tf.Variable(tf.random_normal([128]));
+conv2 = tf.nn.conv2d(pool1);
+add2 = add(conv2, bias2);
+relu2 = tf.nn.relu(add2);
+pool2 = max_pool(relu2);kernel3 = tf.Variable(tf.random_normal([3, 3, 128, 256])); 
+bias3 = tf.Variable(tf.random_normal([256]));conv3 = tf.nn.conv2d(pool2); 
+add3 = add(conv3, bias3); 
+relu3 = tf.nn.relu(add3);
+pool3 = max_pool(relu3);outputs = tf.nn.relu(pool3); 
+}

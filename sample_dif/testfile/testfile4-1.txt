@@ -1,0 +1,25 @@
+INPUT
+
+graph [studentnumber]( inputs ) -> ( outputs )
+{
+input = reshape( inputs, [-1, 28, 28, 1] ); 
+kernel1 = variable( [3, 3, 1, 64] );
+bias1 = variable( [64] );
+conv1 = conv( input ); 
+add1 = add( conv1, bias1 );
+ relu1 = relu( add1 );
+pool1 = max_pool( relu1 );
+kernel2 = variable( [3, 3, 64, 128] ); 
+bias2 = variable( [128] );
+conv2 = conv( pool1 );
+ add2 = add( conv2, bias2 ); 
+relu2 = relu( add2 );
+pool2 = max_pool( relu2 );
+kernel3 = variable( [3, 3, 128, 256] ); 
+bias3 = variable( [256] );
+conv3 = conv( pool2 );
+add3 = add( conv3, bias3 );
+relu3 = relu( add3 );
+pool3 = max_pool( relu3 );
+outputs = relu( pool3 ); 
+}
