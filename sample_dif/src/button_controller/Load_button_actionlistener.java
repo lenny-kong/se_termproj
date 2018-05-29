@@ -20,7 +20,7 @@ public class Load_button_actionlistener implements ActionListener {
 
 		if (load_button.getGui_data_model().getLeft_text_area().getSelectionEnd() != 0
 				|| load_button.getGui_data_model().getRight_text_area().getSelectionEnd() != 0) {
-			result = JOptionPane.showConfirmDialog(null, "이전 작업하던 내용이 있습니다.\n파일을 불러오시겠습니까?", "warning",
+			result = JOptionPane.showConfirmDialog(null, "Texts are exist!\nAre you really want to load new files?", "Warning",
 					JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 			if (result == JOptionPane.YES_OPTION) {
 				load = new Load_Frame(load_button.getGui_data_model());

@@ -78,7 +78,6 @@ public class Background_line_graphics_panel extends JPanel {
 	public void setRefresh_button(boolean refresh_button_click)
 	{
 		this.refresh_button_click =refresh_button_click; 
-		
 	}
 	public boolean getRefresh_button()
 	{

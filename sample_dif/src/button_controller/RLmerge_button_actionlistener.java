@@ -5,6 +5,8 @@ package button_controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import button_model.RLmerge_button;
 import data_model.GUI_data_model;
 public class RLmerge_button_actionlistener implements ActionListener{
@@ -17,7 +19,11 @@ public class RLmerge_button_actionlistener implements ActionListener{
 		this.gui_data_model = rl_merge_button.getGui_data_model();
 		rl_merge_button.merge(gui_data_model.getRight_text_area(),gui_data_model.getLeft_text_area());
 		
-		
+		if(gui_data_model.getLeft_background_graphics_panel().getRefresh_button())
+			rl_merge_button.merge(gui_data_model.getLeft_text_area(),gui_data_model.getRight_text_area());
+		else
+			 JOptionPane.showMessageDialog(null,"You can click Merge button,\nafter click Refresh Button!", "Error message", JOptionPane.WARNING_MESSAGE);
+
 	
 		
 	}

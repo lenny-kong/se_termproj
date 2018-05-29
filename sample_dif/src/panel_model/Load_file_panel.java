@@ -37,9 +37,11 @@ public class Load_file_panel extends JPanel {
 		
 		if (location == GUI_data_model.location.LEFT) {
 			text_location.setText("Left File :    ");
+			file_path.setText(gui_data_model.getLeft_file_path());
 			gui_data_model.set_filepath_field(this.file_path);
 		} else if (location == GUI_data_model.location.RIGHT) {
 			text_location.setText("Right File : ");
+			file_path.setText(gui_data_model.getRight_file_path());
 			gui_data_model.set_filepath_field(this.file_path);
 		}
 		this.add(text_location);

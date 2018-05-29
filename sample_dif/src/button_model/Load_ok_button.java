@@ -48,7 +48,6 @@ public class Load_ok_button extends Button_model {
 		this.setPreferredSize(new Dimension(24, 24));
 
 		this.gui_data_model = gui_data_model;
-		
 		this.leftpath = leftpath;
 		this.rightpath = rightpath;
 		
@@ -70,19 +69,16 @@ public class Load_ok_button extends Button_model {
 	
 	public void input_file_data_to_list() {
 		String tmp; // to read a line in txt file
-		String_object input_line = null; // to convert string to string_object
+		String_object input_line; // to convert string to string_object
+		gui_data_model.getLeft_list().clear();
+		gui_data_model.getRight_list().clear();
 
 		try {
 			BufferedReader left_in_file = new BufferedReader(new FileReader(gui_data_model.getLeft_file_path()));
-			System.out.println("length = "+gui_data_model.getLeft_file_path().length());
-			if(gui_data_model.getLeft_file_path()==null) {
-				input_line = new String_object(null);
-				gui_data_model.getLeft_list().add(null);
-				System.out.println("null¿‘¥œ¥Á");
-			}
 			while ((tmp = left_in_file.readLine()) != null) {
 				input_line = new String_object(tmp); // convert string to string_object
 				gui_data_model.getLeft_list().add(input_line); // add list
+				gui_data_model.getLeft_background_graphics_panel().repaint();
 			}
 			
 			left_in_file.close();
