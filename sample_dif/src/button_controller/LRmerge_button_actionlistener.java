@@ -4,7 +4,8 @@ package button_controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+
+import javax.swing.JOptionPane;
 
 import button_model.LRmerge_button;
 import compare_algorithm.String_object;
@@ -19,11 +20,15 @@ public class LRmerge_button_actionlistener implements ActionListener{
 		this.gui_data_model = lr_merge_button.getGui_data_model();
 		
 		//after clicked refresh_button, merge_button is executed.
-		if(gui_data_model.getLeft_background_graphics_panel().getRefresh_button())
-			lr_merge_button.merge(gui_data_model.getLeft_text_area(),gui_data_model.getRight_text_area());
+		
+			if(gui_data_model.getLeft_background_graphics_panel().getRefresh_button())
+				lr_merge_button.merge(gui_data_model.getLeft_text_area(),gui_data_model.getRight_text_area());
+			else
+				 JOptionPane.showMessageDialog(null,"refresh 후에 merge가 가능합니다.", "error message", JOptionPane.WARNING_MESSAGE);
 		
 		
-	
+		
+			
 		
 	}
 }
