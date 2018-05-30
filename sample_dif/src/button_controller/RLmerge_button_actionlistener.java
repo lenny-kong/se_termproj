@@ -23,8 +23,5 @@ public class RLmerge_button_actionlistener implements ActionListener{
 			rl_merge_button.merge(gui_data_model.getLeft_text_area(),gui_data_model.getRight_text_area());
 		else
 			 JOptionPane.showMessageDialog(null,"You can click Merge button,\nafter click Refresh Button!", "Error message", JOptionPane.WARNING_MESSAGE);
-
-	
-		
 	}
 }

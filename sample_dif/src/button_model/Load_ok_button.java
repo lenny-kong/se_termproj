@@ -68,10 +68,13 @@ public class Load_ok_button extends Button_model {
 	
 	
 	public void input_file_data_to_list() {
-		String tmp; // to read a line in txt file
-		String_object input_line; // to convert string to string_object
 		gui_data_model.getLeft_list().clear();
 		gui_data_model.getRight_list().clear();
+		String tmp = ""; // to read a line in txt file
+		String_object input_line; // to convert string to string_object
+		input_line = new String_object(tmp);
+		gui_data_model.getLeft_list().add(input_line);
+		gui_data_model.getRight_list().add(input_line);
 
 		try {
 			BufferedReader left_in_file = new BufferedReader(new FileReader(gui_data_model.getLeft_file_path()));
@@ -119,15 +122,20 @@ public class Load_ok_button extends Button_model {
 		int cnt;
 		gui_data_model.getLeft_text_area().setText(null);
 		gui_data_model.getRight_text_area().setText(null);
-		for (cnt = 0; cnt < gui_data_model.getLeft_list().size(); cnt++) {
+		for (cnt = 1; cnt < gui_data_model.getLeft_list().size(); cnt++) {
 			gui_data_model.getLeft_text_area().append(gui_data_model.getLeft_list().get(cnt).get_string());
-			gui_data_model.getLeft_text_area().append("\n");
+			if(gui_data_model.getLeft_list().size() != cnt+1) {
+				gui_data_model.getLeft_text_area().append("\n");
+			}
+			System.out.println("cnt : "+cnt);
+			System.out.println("size : "+gui_data_model.getLeft_list().size());
 		}
 		for (cnt = 0; cnt < gui_data_model.getRight_list().size(); cnt++) {
 			gui_data_model.getRight_text_area().append(gui_data_model.getRight_list().get(cnt).get_string());
-			gui_data_model.getRight_text_area().append("\n");
+			if(gui_data_model.getRight_list().size() != cnt+1) {
+				gui_data_model.getRight_text_area().append("\n");
+			}
 		}
-
 		gui_data_model.getLeft_background_graphics_panel().repaint();
 	}
 }
