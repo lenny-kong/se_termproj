@@ -10,7 +10,7 @@ public class Compare_util_string {
 		LEFT, UP, CROSS,
 	};
 
-	protected enum parsing_option {
+	public enum parsing_option {
 		LINE, SYNTAX, LEXICAL,
 	};
 

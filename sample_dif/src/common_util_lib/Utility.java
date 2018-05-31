@@ -2,8 +2,6 @@ package common_util_lib;
 
 import java.util.List;
 
-import data_model.GUI_data_model;
-
 public class Utility {
 
 	/*
