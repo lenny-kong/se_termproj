@@ -95,6 +95,10 @@ public class Compare_util_string_list extends Compare_util_string {
 	public Compare_util_string_list(List<String_object> left, List<String_object> right, parsing_option option, float threshold) {
 		set_LCS_string_list(left, right, option, threshold);
 	}
+	
+	public Compare_util_string_list(List<String_object> left, List<String_object> right) {
+		set_LCS_string_list(left, right, parsing_option.LINE, 1.0f);
+	}
 
 	/*
 	 * Static Function for GUI using.
