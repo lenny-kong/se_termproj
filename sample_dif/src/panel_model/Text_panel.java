@@ -16,7 +16,6 @@ public class Text_panel extends JPanel {
 	private JTextArea text_area;
 	private JScrollPane scroll_pane;
 	private Background_line_graphics_panel background_line_graphics_panel;
-	private Line_num_panel line_num_panel;
 
 	public static final int width = 400;
 	public static final int height = 700;
@@ -36,9 +35,6 @@ public class Text_panel extends JPanel {
 		this.background_line_graphics_panel.setSize(400,700);
 		this.background_line_graphics_panel.add(this.text_area, "Center");
 		
-		//
-		this.line_num_panel = new Line_num_panel();
-		
 		// set scroll pane's properties.
 		this.scroll_pane = new JScrollPane(this.background_line_graphics_panel);
 		//this.scroll_pane.setOpaque(false);
@@ -56,7 +52,6 @@ public class Text_panel extends JPanel {
 		// Use BorderLayout.
 		this.setLayout(new BorderLayout(2,0));
 		this.setSize(400,700);
-		this.scroll_pane.add(line_num_panel);
 		this.scroll_pane.setLocation(100,0);
 		this.add(this.scroll_pane, "Center");
 		// This color may not be shown cause of BorderLayout.
