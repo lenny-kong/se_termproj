@@ -70,10 +70,10 @@ public class Load_ok_button extends Button_model {
 	public void input_file_data_to_list() {
 		String tmp; // to read a line in txt file
 		String_object input_line; // to convert string to string_object
-		
+
 		gui_data_model.getLeft_list().clear();
 		gui_data_model.getRight_list().clear();
-		
+
 		gui_data_model.setRefresh_status(false);
 
 		try {
@@ -106,10 +106,10 @@ public class Load_ok_button extends Button_model {
 		gui_data_model.setLeft_name(gui_data_model.getLeft_file_path().substring(left_index + 1));
 		gui_data_model.setRight_name(gui_data_model.getRight_file_path().substring(right_index + 1));
 
-		if (gui_data_model.getLeft_name().length()!=0)
+		if (gui_data_model.getLeft_name().length() != 0)
 			gui_data_model.getLeft_path_area().setText("File name : " + gui_data_model.getLeft_name());
-		
-		if (gui_data_model.getRight_name().length()!=0)
+
+		if (gui_data_model.getRight_name().length() != 0)
 			gui_data_model.getRight_path_area().setText("File name : " + gui_data_model.getRight_name());
 	}
 	// just display filename.txt , using index "\\"
@@ -126,8 +126,10 @@ public class Load_ok_button extends Button_model {
 			gui_data_model.getRight_text_area().append(gui_data_model.getRight_list().get(cnt).get_string());
 			gui_data_model.getRight_text_area().append("\n");
 		}
-		gui_data_model.getLeft_overview_panel().repaint();
+		if (gui_data_model.getLeft_overview_panel() != null)
+			gui_data_model.getLeft_overview_panel().repaint();
 
-		gui_data_model.getLeft_background_graphics_panel().repaint();
+		if (gui_data_model.getLeft_background_graphics_panel() != null)
+			gui_data_model.getLeft_background_graphics_panel().repaint();
 	}
 }

@@ -19,7 +19,7 @@ public class Edit_button extends Button_model {
 	private final String default_image_path = "icon_image/edit/edit.png";
 	private final String pushed_image_path = "icon_image/edit/edit_push.png";
 	private final String mouseover_image_path = "icon_image/edit/edit_mouseover.png";
-	
+
 	/*
 	 * Constructor with name, image, text area.
 	 */
@@ -56,10 +56,9 @@ public class Edit_button extends Button_model {
 	public void button_toggle() {
 		this.is_pushed = Utility.bool_reverse(is_pushed);
 		set_edit_mode(is_pushed);
-		change_image();	
-		
-	}
+		change_image();
 
+	}
 
 	/*
 	 * set mode.
@@ -67,13 +66,15 @@ public class Edit_button extends Button_model {
 	private void set_edit_mode(boolean mode) {
 		left_text_area.setEditable(mode);
 		right_text_area.setEditable(mode);
-		if(mode)
-		{
+		if (mode) {
 			gui_data_model.setRefresh_status(false);
-			gui_data_model.getLeft_background_graphics_panel().repaint();
-			gui_data_model.getRight_background_graphics_panel().repaint();
+			if (gui_data_model.getLeft_background_graphics_panel() != null
+					&& gui_data_model.getRight_background_graphics_panel() != null) {
+				gui_data_model.getLeft_background_graphics_panel().repaint();
+				gui_data_model.getRight_background_graphics_panel().repaint();
+			}
 		}
-		
+
 	}
 
 	/*
@@ -86,8 +87,7 @@ public class Edit_button extends Button_model {
 		} else {
 			this.current_icon = this.pushed_icon;
 			this.setIcon(this.current_icon);
-					
-			
+
 		}
 	}
 
