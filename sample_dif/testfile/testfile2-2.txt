@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>WinMerge Test File2</title>
+</head>
+	<h1>WinMerge 사용법</h1>
+	<div class="rice">
+	 <u1>
+	     <li>단팥빵</li>
+	     <li>소보로빵</li>
+             <li>크루아상</li>
+	 </u1>
+        </div>
+</body>
+</html>

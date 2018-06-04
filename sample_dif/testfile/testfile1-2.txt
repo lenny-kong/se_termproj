@@ -1,0 +1,50 @@
+import button_controller.*;
+
+
+public String getName(){
+ 	return this.name;
+}
+public File getSaveFile1(String fileName) {
+		// create frame
+		Frame frame = new Frame();
+		File fileTemp = null;
+		String fileNameTemp;
+		// create file dialog
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+		
+	System.out.println("create file filter");
+		fileChooser.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT (*.txt)", "txt");
+		fileChooser.addChoosableFileFilter(filter);
+
+		// recursive, input previous file name
+		if (fileName != "") {
+			fileChooser.setSelectedFile(new File(fileName));
+		}
+
+		// print file dialog 
+		if (fileChooser.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {
+
+
+			// if user doesn't add file extension
+			fileNameTemp = fileChooser.getSelectedFile().toString();
+			if (!fileNameTemp.endsWith(".txt") && !fileNameTemp.endsWith(".txt")) {
+				fileNameTemp += ".txt";
+			}
+
+			
+			fileTemp = new File(fileNameTemp);
+			if (fileTemp.exists()) {
+				int r = JOptionPane.showConfirmDialog(frame, fileTemp.getName() + "이(가) 이미 있습니다. 바꾸시겠습니까?", "다른 이름으로 저장 확인",
+						JOptionPane.YES_NO_OPTION);
+				if (r == JOptionPane.NO_OPTION) {
+					// recursive
+					getSaveFile(fileNameTemp);
+				}
+			}
+
+		}
+
+		return fileTemp;
+	}
