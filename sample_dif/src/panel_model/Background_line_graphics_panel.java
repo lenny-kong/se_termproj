@@ -17,11 +17,10 @@ public class Background_line_graphics_panel extends JPanel {
 	public int maximum_line_in_window = 50;
 	public Color highlight_color = Color.WHITE;
 	private JTextArea text_area;
-	private boolean refresh_button_click =false;
-
-
-	public Background_line_graphics_panel(JTextArea text_area) {
+	
+	public Background_line_graphics_panel(JTextArea text_area, GUI_data_model gui_data_model) {
 		this.text_area = text_area;
+		this.gui_data_model = gui_data_model;
 	}
 
 	@SuppressWarnings("unlikely-arg-type")
@@ -32,12 +31,12 @@ public class Background_line_graphics_panel extends JPanel {
 		int total_line = this.text_area.getLineCount();
 		
 		//before refresh_button is pressed or after merge button is pressed
-		if(!this.refresh_button_click)
+		if(!this.gui_data_model.getRefresh_status())
 			for (int i = 0; i < total_line; i++) {
 				if(i%2==0)
 				g.setColor(this.highlight_color);
 				else
-					g.setColor(Color.LIGHT_GRAY);
+					g.setColor(Color.white);
 
 				// 2 for top Gap.
 				g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
@@ -53,13 +52,13 @@ public class Background_line_graphics_panel extends JPanel {
 			{
 				//NOCHANGE=O, DIFFER=1, SIMILAR=2
 				if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==0) {
-					g.setColor(Pastel_color.pastel_red);
+					g.setColor(Pastel_color.pastel_yellow);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.black);
 				}
 				
 				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==1){
-					g.setColor(Pastel_color.pastel_yellow);
+					g.setColor(Pastel_color.pastel_red);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.red);
 				}
@@ -80,14 +79,14 @@ public class Background_line_graphics_panel extends JPanel {
 
 	
 
-	public void setRefresh_button(boolean refresh_button_click)
+	/*public void setRefresh_button(boolean refresh_button_click)
 	{
 		this.refresh_button_click =refresh_button_click; 
 	}
 	public boolean getRefresh_button()
 	{
 		return this.refresh_button_click;
-	}
+	}*/
 	public void setGui_data_model(GUI_data_model gui_data_model) {
 		this.gui_data_model = gui_data_model;
 		

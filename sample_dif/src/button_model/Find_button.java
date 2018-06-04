@@ -1,9 +1,14 @@
 package button_model;
 
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import button_controller.Find_button_actionlistener;
 import data_model.GUI_data_model;
@@ -50,6 +55,32 @@ public class Find_button extends Button_model {
 	public GUI_data_model getGui_data_model() {
 		return gui_data_model;
 	} // get gui data model
+	
+	private boolean disableTF(Container c) {
+	      Component[] cmps = c.getComponents();
+	      for (Component cmp : cmps) {
+	         if (cmp instanceof JTextField) {
+	            ((JTextField) cmp).setEnabled(false);
+	            return true;
+	         }
+	         if (cmp instanceof Container) {
+	            if (disableTF((Container) cmp))
+	               return true;
+	         }
+	      }
+	      return false;
+	   }
+
+	   public void make_chooser() {
+	      JFileChooser chooser = new JFileChooser();
+	      FileNameExtensionFilter filter= new FileNameExtensionFilter("*.txt", "txt");
+	      chooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+	      chooser.setFileFilter(filter);
+	      disableTF(chooser);
+	      chooser.showOpenDialog(null);
+	      if(chooser.getSelectedFile()!=null)
+	         text_field.setText(chooser.getSelectedFile().getPath());   	 
+	   }
 
 		
 	public void print_file_path() {

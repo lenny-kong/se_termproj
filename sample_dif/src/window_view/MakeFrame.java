@@ -12,10 +12,9 @@ class MainFrame extends JFrame {
 	private Button_text_panel right_button_text_panel;
 	private Top_menu_panel top_menu_panel;
 	private Merge_button_panel merge_button_panel;
-
 	private GUI_data_model gui_data_model;
 	
-	public static final int width = 1050;
+	public static final int width = 1400;
 	public static final int height = 900;
 
 
@@ -40,11 +39,11 @@ class MainFrame extends JFrame {
 		this.gui_data_model.setMain_frame(this);
 
 		// Set location each panels.
-		left_button_text_panel.setBounds(30, 100, Button_text_panel.width, Button_text_panel.height);
-		right_button_text_panel.setBounds(Button_text_panel.width + 200, 100, Button_text_panel.width,
+		left_button_text_panel.setBounds(30, 120, Button_text_panel.width, Button_text_panel.height);
+		right_button_text_panel.setBounds(Button_text_panel.width + 350, 120, Button_text_panel.width,
 				Button_text_panel.height);
-		top_menu_panel.setBounds(750, 20, Top_menu_panel.width, Top_menu_panel.height);
-		merge_button_panel.setBounds(480,400,merge_button_panel.width,merge_button_panel.height);
+		top_menu_panel.setBounds(1100, 20, Top_menu_panel.width, Top_menu_panel.height);
+		merge_button_panel.setBounds(655,400,merge_button_panel.width,merge_button_panel.height);
 		
 		// Add to frame.
 		this.add(left_button_text_panel);

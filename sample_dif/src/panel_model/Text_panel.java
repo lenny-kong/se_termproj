@@ -30,7 +30,7 @@ public class Text_panel extends JPanel {
 		this.text_area.setBackground(new Color(0,0,0,0));
 
 		// set background line panel's properties.
-		this.background_line_graphics_panel = new Background_line_graphics_panel(this.text_area);
+		this.background_line_graphics_panel = new Background_line_graphics_panel(this.text_area, gui_data_model);
 		this.background_line_graphics_panel.setLayout(new BorderLayout());
 		this.background_line_graphics_panel.setSize(400,700);
 		this.background_line_graphics_panel.add(this.text_area, "Center");

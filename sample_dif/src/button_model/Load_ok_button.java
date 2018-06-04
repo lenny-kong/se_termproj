@@ -70,6 +70,7 @@ public class Load_ok_button extends Button_model {
 	public void input_file_data_to_list() {
 		gui_data_model.getLeft_list().clear();
 		gui_data_model.getRight_list().clear();
+		gui_data_model.setRefresh_status(false);
 		String tmp = ""; // to read a line in txt file
 		String_object input_line; // to convert string to string_object
 		input_line = new String_object(tmp);
@@ -127,8 +128,6 @@ public class Load_ok_button extends Button_model {
 			if(gui_data_model.getLeft_list().size() != cnt+1) {
 				gui_data_model.getLeft_text_area().append("\n");
 			}
-			System.out.println("cnt : "+cnt);
-			System.out.println("size : "+gui_data_model.getLeft_list().size());
 		}
 		for (cnt = 0; cnt < gui_data_model.getRight_list().size(); cnt++) {
 			gui_data_model.getRight_text_area().append(gui_data_model.getRight_list().get(cnt).get_string());
@@ -136,6 +135,8 @@ public class Load_ok_button extends Button_model {
 				gui_data_model.getRight_text_area().append("\n");
 			}
 		}
-		gui_data_model.getLeft_background_graphics_panel().repaint();
+		if(gui_data_model.getLeft_background_graphics_panel()!=null) {
+			gui_data_model.getLeft_background_graphics_panel().repaint();
+		}
 	}
 }

@@ -45,99 +45,107 @@ public class GUI_data_model {
 	private Background_line_graphics_panel left_background_graphics_panel;
 	private Background_line_graphics_panel right_background_graphics_panel;
 
+	private boolean refresh_status;
+
 	/*
 	 * Constructor
 	 */
 	public GUI_data_model() {
+		left_text_area = new JTextArea();
+		right_text_area = new JTextArea();
+		left_filepath_area = new JLabel();
+		right_filepath_area = new JLabel();
+
 		left_list = new ArrayList<String_object>();
 		right_list = new ArrayList<String_object>();
 		left_file_path = "";
 		right_file_path = "";
 		left_name = "";
 		right_name = "";
+		refresh_status = false;
 	}
 
 	/*
 	 * Getter & Setter.
 	 */
 	// For Get File Path to Load_Frame;
-		public JTextField get_path_Field() {
-			return filepath_field;
-		}
-		
-		public void set_filepath_field(JTextField filepath_field) {
-			this.filepath_field = filepath_field;
-		}
-		
-		public void set_file_path(String find_file_path) {
-			this.find_file_path = find_file_path;
-		}
-		
-		public String get_file_path() {
-			return find_file_path;
-		}
-		
-		// JTextField
-		public JLabel getLeft_path_label() {
-			return left_filepath_label;
-		}
-		
-		public void setLeft_filepath_label(JLabel left_filepath_label) {
-			this.left_filepath_label = left_filepath_label;
-		}
-		
-		public JLabel getRight_path_label() {
-			return right_filepath_label;
-		}
-		
-		public void setRight_filepath_label(JLabel right_filepath_label) {
-			this.right_filepath_label = right_filepath_label;
-		}
-		
-		public JTextArea getLeft_text_area() {
+	public JTextField get_path_Field() {
+		return filepath_field;
+	}
+
+	public void set_filepath_field(JTextField filepath_field) {
+		this.filepath_field = filepath_field;
+	}
+
+	public void set_file_path(String find_file_path) {
+		this.find_file_path = find_file_path;
+	}
+
+	public String get_file_path() {
+		return find_file_path;
+	}
+
+	// JTextField
+	public JLabel getLeft_path_label() {
+		return left_filepath_label;
+	}
+
+	public void setLeft_filepath_label(JLabel left_filepath_label) {
+		this.left_filepath_label = left_filepath_label;
+	}
+
+	public JLabel getRight_path_label() {
+		return right_filepath_label;
+	}
+
+	public void setRight_filepath_label(JLabel right_filepath_label) {
+		this.right_filepath_label = right_filepath_label;
+	}
+
+	public JTextArea getLeft_text_area() {
 		return left_text_area;
 	}
-	
+
 	public void setLeft_text_area(JTextArea left_text_area) {
 		this.left_text_area = left_text_area;
 	}
-	
+
 	public JTextArea getRight_text_area() {
 		return right_text_area;
 	}
-	
+
 	public void setRight_text_area(JTextArea right_text_area) {
 		this.right_text_area = right_text_area;
 	}
-	
+
 	public String getRight_file_path() {
 		return right_file_path;
 	}
-	
+
 	public void setRight_file_path(String right_file_path) {
 		this.right_file_path = right_file_path;
 	}
-	
+
 	public String getLeft_file_path() {
 		return left_file_path;
 	}
-	
+
 	public void setLeft_file_path(String left_file_path) {
 		this.left_file_path = left_file_path;
 	}
-	
+
 	public JLabel getLeft_path_area() {
 		return left_filepath_area;
 	}
-	
+
 	public void setLeft_filepath_area(JLabel left_filepath_area) {
 		this.left_filepath_area = left_filepath_area;
 	}
-	
+
 	public JLabel getRight_path_area() {
 		return right_filepath_area;
 	}
-	
+
 	public void setRight_filepath_area(JLabel right_filepath_area) {
 		this.right_filepath_area = right_filepath_area;
 	}
@@ -208,6 +216,14 @@ public class GUI_data_model {
 
 	public void setLeft_name(String left_name) {
 		this.left_name = left_name;
+	}
+
+	public void setRefresh_status(boolean status) {
+		refresh_status = status;
+	}
+
+	public boolean getRefresh_status() {
+		return refresh_status;
 	}
 
 }

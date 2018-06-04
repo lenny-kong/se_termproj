@@ -67,13 +67,14 @@ public class Edit_button extends Button_model {
 	private void set_edit_mode(boolean mode) {
 		left_text_area.setEditable(mode);
 		right_text_area.setEditable(mode);
-		if(mode)
-		{
-			gui_data_model.getLeft_background_graphics_panel().setRefresh_button(false);
-			gui_data_model.getRight_background_graphics_panel().setRefresh_button(false);
-			gui_data_model.getLeft_background_graphics_panel().repaint();
-			gui_data_model.getRight_background_graphics_panel().repaint();
-		}
+		if (mode) {
+	         gui_data_model.setRefresh_status(false);
+	         if (gui_data_model.getLeft_background_graphics_panel() != null
+	               && gui_data_model.getRight_background_graphics_panel() != null) {
+	            gui_data_model.getLeft_background_graphics_panel().repaint();
+	            gui_data_model.getRight_background_graphics_panel().repaint();
+	         }
+	      }
 		
 	}
 
