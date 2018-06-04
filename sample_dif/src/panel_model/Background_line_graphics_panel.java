@@ -36,7 +36,7 @@ public class Background_line_graphics_panel extends JPanel {
 				if(i%2==0)
 				g.setColor(this.highlight_color);
 				else
-					g.setColor(Color.white);
+					g.setColor(Pastel_color.pastel_gray);
 
 				// 2 for top Gap.
 				g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
@@ -52,7 +52,7 @@ public class Background_line_graphics_panel extends JPanel {
 			{
 				//NOCHANGE=O, DIFFER=1, SIMILAR=2
 				if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==0) {
-					g.setColor(Pastel_color.pastel_yellow);
+					g.setColor(Pastel_color.pastel_green);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.black);
 				}
@@ -64,7 +64,7 @@ public class Background_line_graphics_panel extends JPanel {
 				}
 
 				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==2) {
-					g.setColor(Pastel_color.pastel_green);
+					g.setColor(Pastel_color.pastel_yellow);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.green);
 				}
