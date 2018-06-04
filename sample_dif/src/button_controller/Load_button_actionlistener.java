@@ -20,7 +20,7 @@ public class Load_button_actionlistener implements ActionListener {
 
 		if (load_button.getGui_data_model().getLeft_text_area().getSelectionEnd() != 0
 				|| load_button.getGui_data_model().getRight_text_area().getSelectionEnd() != 0) {
-			result = JOptionPane.showConfirmDialog(null, "There is content you were working on before\n Would you like to load the file?", "warning",
+			result = JOptionPane.showConfirmDialog(null, "There is content you were working on before. \n Would you like to load the file?", "warning",
 					JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 			if (result == JOptionPane.YES_OPTION) {
 				load = new Load_Frame(load_button.getGui_data_model());
