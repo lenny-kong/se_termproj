@@ -19,10 +19,10 @@ public class RLmerge_button_actionlistener implements ActionListener{
 		this.gui_data_model = rl_merge_button.getGui_data_model();
 		
 		//after clicked refresh_button, merge_button is executed.
-		if(gui_data_model.getLeft_background_graphics_panel().getRefresh_button())
+		if(gui_data_model.getRefresh_status())
 			rl_merge_button.merge(gui_data_model.getRight_text_area(),gui_data_model.getLeft_text_area());
 		else
-			 JOptionPane.showMessageDialog(null,"refresh 후에 merge가 가능합니다.", "error message", JOptionPane.WARNING_MESSAGE);
+			 JOptionPane.showMessageDialog(null,"please refresh first", "error", JOptionPane.WARNING_MESSAGE);
 		
 	
 		

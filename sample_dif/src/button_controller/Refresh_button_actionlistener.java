@@ -14,15 +14,14 @@ public class Refresh_button_actionlistener implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		int cnt;
-		String_object string_object;
 		// Get source of event and Typecast to Edit_button
 		Refresh_button refresh_button = (Refresh_button) e.getSource();
 
 		// Call toggle function of button_model.
 		this.gui_data_model = refresh_button.getGui_data_model();
-
-		gui_data_model.getLeft_background_graphics_panel().setRefresh_button(true);
-		gui_data_model.getRight_background_graphics_panel().setRefresh_button(true);
+		
+		gui_data_model.setRefresh_status(true);
+		
 		Compare_util_string_list compare;
 		StringTokenizer left_token = new StringTokenizer(gui_data_model.getLeft_text_area().getText(), "\n");
 		StringTokenizer right_token = new StringTokenizer(gui_data_model.getRight_text_area().getText(), "\n");
@@ -44,11 +43,6 @@ public class Refresh_button_actionlistener implements ActionListener {
 		gui_data_model.setLeft_list(compare.get_left_String_object_list());
 		gui_data_model.setRight_list(compare.get_right_String_object_list());
 		// apply Algorithm to left and right list
-		
-		
-		//set Left,right_background_panel's gui_data_model
-		gui_data_model.getLeft_background_graphics_panel().setGui_data_model(this.gui_data_model);
-		gui_data_model.getRight_background_graphics_panel().setGui_data_model(this.gui_data_model);
 		
 		
 		

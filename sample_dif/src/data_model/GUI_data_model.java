@@ -41,6 +41,8 @@ public class GUI_data_model {
 	private Left_overview_panel left_overview_panel;
 	private Background_line_graphics_panel left_background_graphics_panel;
 	private Background_line_graphics_panel right_background_graphics_panel;
+	
+	private boolean refresh_status;
 
 	/*
 	 * Constructor
@@ -52,6 +54,7 @@ public class GUI_data_model {
 		right_file_path = "";
 		left_name = "";
 		right_name = "";
+		refresh_status = false;
 	}
 
 	/*
@@ -180,5 +183,11 @@ public class GUI_data_model {
 	public void setLeft_name(String left_name) {
 		this.left_name = left_name;
 	}
+	public void setRefresh_status(boolean status) {
+		refresh_status = status;
+	}
 
+	public boolean getRefresh_status() {
+		return refresh_status;
+	}
 }

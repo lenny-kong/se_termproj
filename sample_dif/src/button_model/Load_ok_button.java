@@ -70,6 +70,11 @@ public class Load_ok_button extends Button_model {
 	public void input_file_data_to_list() {
 		String tmp; // to read a line in txt file
 		String_object input_line; // to convert string to string_object
+		
+		gui_data_model.getLeft_list().clear();
+		gui_data_model.getRight_list().clear();
+		
+		gui_data_model.setRefresh_status(false);
 
 		try {
 			BufferedReader left_in_file = new BufferedReader(new FileReader(gui_data_model.getLeft_file_path()));
