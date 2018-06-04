@@ -56,17 +56,20 @@ public class Background_line_graphics_panel extends JPanel {
 					g.setColor(Pastel_color.pastel_red);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.black);
-
+				}
 				
 				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==1){
 					g.setColor(Pastel_color.pastel_yellow);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.red);
+				}
 
 				else if(gui_data_model.getLeft_list().get(i).get_status().ordinal()==2) {
 					g.setColor(Pastel_color.pastel_green);
 					g.fillRect(2, height_per_line * i+5, this.getSize().width-4, height_per_line+1);
 					g.setColor(Color.green);
+				}
+			}
 
 		
 		}
