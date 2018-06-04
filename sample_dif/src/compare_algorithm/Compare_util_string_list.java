@@ -271,15 +271,14 @@ public class Compare_util_string_list extends Compare_util_string {
 			}
 			case SIM_CROSS: {
 				if (get_if_other_cross(arr_s, k, l) == arrayDirection.LEFT) {
-					left_temp
-							.add(new String_object(left.get(k - 1).get_string(), String_object.Modified_status.DIFFER));
+					left_temp.add(new String_object(left.get(k - 1).get_string(), String_object.Modified_status.DIFFER));
 					right_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 					k--;
 					break;
 				} else if (get_if_other_cross(arr_s, k, l) == arrayDirection.UP) {
 					left_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 					right_temp.add(
-							new String_object(right.get(l - 1).get_string(), String_object.Modified_status.DIFFER));
+					new String_object(right.get(l - 1).get_string(), String_object.Modified_status.DIFFER));
 					l--;
 					break;
 				} else {
@@ -311,11 +310,13 @@ public class Compare_util_string_list extends Compare_util_string {
 		{
 			if(left_temp.get(i).get_string().equals("") 
 					&& right_temp.get(i).get_string().equals("")
-					&& left_temp.get(i).get_status() == String_object.Modified_status.DIFFER
-					&& right_temp.get(i).get_status() == String_object.Modified_status.DIFFER) 
+					//&& left_temp.get(i).get_status() == String_object.Modified_status.DIFFER
+					//&& right_temp.get(i).get_status() == String_object.Modified_status.DIFFER
+					) 
 			{
 				left_temp.remove(i);
 				right_temp.remove(i);
+				i--;
 			}
 		}
 		
