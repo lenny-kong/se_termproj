@@ -22,46 +22,14 @@ public class Refresh_button_actionlistener implements ActionListener {
 		
 		gui_data_model.setRefresh_status(true);
 		
-		Compare_util_string_list compare;
-		StringTokenizer left_token = new StringTokenizer(gui_data_model.getLeft_text_area().getText(), "\n");
-		StringTokenizer right_token = new StringTokenizer(gui_data_model.getRight_text_area().getText(), "\n");
-		// tokenize for insert that  data in list
-		
-		gui_data_model.getLeft_list().clear();
-		gui_data_model.getRight_list().clear();
-		// delete before data in left or right list
-		
-		for (cnt = left_token.countTokens(); cnt > 0; cnt--) {
-			gui_data_model.getLeft_list().add(new String_object(left_token.nextToken()));
-		}
-		for (cnt = right_token.countTokens(); cnt > 0; cnt--) {
-			gui_data_model.getRight_list().add(new String_object(right_token.nextToken()));
-		}
-		//put data in list
-		
-		compare = new Compare_util_string_list(gui_data_model.getLeft_list(), gui_data_model.getRight_list());
-		gui_data_model.setLeft_list(compare.get_left_String_object_list());
-		gui_data_model.setRight_list(compare.get_right_String_object_list());
-		// apply Algorithm to left and right list
-		
-		
-		
-		gui_data_model.getLeft_text_area().setText(null);
-		gui_data_model.getRight_text_area().setText(null);
-		// delete all contents in left and right text area to show compare list in gui after algorithm
-		
-		for (cnt = 0; cnt < gui_data_model.getLeft_list().size(); cnt++) {
-			gui_data_model.getLeft_text_area().append(gui_data_model.getLeft_list().get(cnt).get_string());
-			gui_data_model.getLeft_text_area().append("\n");
-		}
-		for (cnt = 0; cnt < gui_data_model.getRight_list().size(); cnt++) {
-			gui_data_model.getRight_text_area().append(gui_data_model.getRight_list().get(cnt).get_string());
-			gui_data_model.getRight_text_area().append("\n");
-		}
-		// put.. data..
+		refresh_button.tokenize_compare_list();
+		refresh_button.compare_list();
+		refresh_button.print_list_text_area();
 		
 		gui_data_model.getLeft_overview_panel().repaint();
-		//gui_data_model.getLeft_background_graphics_panel().repaint();
+		gui_data_model.getLeft_background_graphics_panel().repaint();
+		gui_data_model.getRight_background_graphics_panel().repaint();
+
 		// repaint
 		
 	}
