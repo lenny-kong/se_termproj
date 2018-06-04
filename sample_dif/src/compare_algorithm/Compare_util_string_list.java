@@ -86,14 +86,14 @@ public class Compare_util_string_list extends Compare_util_string {
 		} catch (IOException e) {
 
 		}
-		set_LCS_string_list(left_list, right_list, parsing_option.LEXICAL, 0.89f);
+		set_LCS_string_list(left_list, right_list, parsing_option.LINE, 1.f);
 	}
 
 	/*
 	 * Constructor with 2 string list.
 	 */
 	public Compare_util_string_list(List<String_object> left, List<String_object> right) {
-		set_LCS_string_list(left, right, parsing_option.LEXICAL,0.89f);
+		set_LCS_string_list(left, right, parsing_option.LINE,1.f);
 	}
 
 	/*
@@ -307,6 +307,18 @@ public class Compare_util_string_list extends Compare_util_string {
 		left_temp = Utility.<String_object>reverse(left_temp);
 		right_temp = Utility.<String_object>reverse(right_temp);
 
+		for(int i = 0; i< left_temp.size(); i++) 
+		{
+			if(left_temp.get(i).get_string().equals("") 
+					&& right_temp.get(i).get_string().equals("")
+					&& left_temp.get(i).get_status() == String_object.Modified_status.DIFFER
+					&& right_temp.get(i).get_status() == String_object.Modified_status.DIFFER) 
+			{
+				left_temp.remove(i);
+				right_temp.remove(i);
+			}
+		}
+		
 		// Get reversed list and set total list size.
 		this.left_String_object_list = left_temp;
 		this.right_String_object_list = right_temp;
