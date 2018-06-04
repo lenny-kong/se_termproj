@@ -30,7 +30,6 @@ public class Load_Frame extends JFrame {
 		
 		this.setSize(width, height);
 		this.setTitle("File Load");
-		this.setVisible(true);
 		this.setLayout(null);
 		this.setLocation(400, 200);
 
@@ -47,5 +46,6 @@ public class Load_Frame extends JFrame {
 		this.add(load_ok_button_panel);
 		
 		this.gui_data_model.setLoad_frame(this);
+		this.setVisible(true);
 	}
 }

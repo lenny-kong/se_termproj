@@ -14,24 +14,26 @@ public class Load_ok_button_actionlistener implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		Load_ok_button load_ok_button = (Load_ok_button) e.getSource();
-		load_ok_button.getGui_data_model().setLeft_file_path(load_ok_button.getLeftpath());
-		load_ok_button.getGui_data_model().setRight_file_path(load_ok_button.getRightpath());
-		
+		if (load_ok_button.getLeftpath().length() != 0)
+			load_ok_button.getGui_data_model().setLeft_file_path(load_ok_button.getLeftpath());
+		if (load_ok_button.getRightpath().length() != 0)
+			load_ok_button.getGui_data_model().setRight_file_path(load_ok_button.getRightpath());
+
 		if (load_ok_button.getGui_data_model().getLeft_file_path().length() != 0
-	            && load_ok_button.getGui_data_model().getRight_file_path().length() != 0) {
-		// ÆÄÀÏÀÌ µÎ°³°¡ ´Ù ·ÎµåµÇ¾î¾ß ÇÔ.	
-	         load_ok_button.input_file_data_to_list();
+				|| load_ok_button.getGui_data_model().getRight_file_path().length() != 0) {
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îµï¿½Ç¾ï¿½ï¿½ ï¿½ï¿½.
+			load_ok_button.input_file_data_to_list();
 
-	         load_ok_button.display_list_to_textarea();
-	         // update modified data
-	         load_ok_button.display_path_to_patharea();
-	         // update filepath
+			load_ok_button.display_list_to_textarea();
+			// update modified data
+			load_ok_button.display_path_to_patharea();
+			// update filepath
 
-	         load_ok_button.getGui_data_model().getLoad_frame().dispose();
-	         // close load frame
-	      } else {
-	         JOptionPane.showMessageDialog(null, "Select File!", "Warning", JOptionPane.WARNING_MESSAGE);
+			load_ok_button.getGui_data_model().getLoad_frame().dispose();
+			// close load frame
+		} else {
+			JOptionPane.showMessageDialog(null, "Select File!", "Warning", JOptionPane.WARNING_MESSAGE);
 
-	      }
+		}
 	}
 }

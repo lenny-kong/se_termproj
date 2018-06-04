@@ -22,6 +22,12 @@ public class Find_button extends Button_model {
 	private GUI_data_model gui_data_model;
 	private JTextField text_field = new JTextField("",30);
 
+	public JTextField getText_field() {
+		return text_field;
+	}
+	public void setText_field(JTextField text_field) {
+		this.text_field = text_field;
+	}
 	public Find_button(GUI_data_model gui_data_model, JTextField text_field) {
 		// construct and set default image.
 		super(Icon_image_load.load_image("icon_image/find/find.png"));

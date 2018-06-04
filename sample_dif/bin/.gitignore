@@ -1,8 +1,3 @@
-/.DS_Store
-/button_controller/
 /button_model/
-/common_util_lib/
-/compare_algorithm/
-/data_model/
-/panel_model/
+/button_controller/
 /window_view/

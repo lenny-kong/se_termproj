@@ -1,10 +1,8 @@
 package button_model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import javax.swing.JTextArea;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import data_model.GUI_data_model;
 import junit.framework.Assert;
