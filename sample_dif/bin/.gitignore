@@ -1,6 +1,3 @@
-/window_view/
-/button_controller/
-/button_model/
-/data_model/
 /panel_model/
-/compare_algorithm/
+/window_view/
+/button_model/

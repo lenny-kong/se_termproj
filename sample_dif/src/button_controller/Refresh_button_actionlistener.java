@@ -66,7 +66,6 @@ public class Refresh_button_actionlistener implements ActionListener {
 		}
 		// put.. data..
 		
-		gui_data_model.getLeft_overview_panel().repaint();
 		//gui_data_model.getLeft_background_graphics_panel().repaint();
 		// repaint
 		

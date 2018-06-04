@@ -10,7 +10,6 @@ import compare_algorithm.String_object;
 import data_model.GUI_data_model;
 import data_model.Pastel_color;
 import panel_model.Background_line_graphics_panel;
-import panel_model.Left_overview_panel;
 import panel_model.Text_panel;
 import window_view.Icon_image_load;
 
@@ -20,7 +19,6 @@ public class Refresh_button extends Button_model {
 	private final String pushed_image_path = "icon_image/refresh/refresh_push.png";
 	private final String mouseover_image_path = "icon_image/refresh/refresh_mouseover.png";
 
-	private Left_overview_panel left_overview_panel;
 	private Background_line_graphics_panel left_background_graphics_panel;
 	private Background_line_graphics_panel right_background_graphics_panel;
 	private GUI_data_model gui_data_model;
@@ -48,7 +46,6 @@ public class Refresh_button extends Button_model {
 		this.setPreferredSize(new Dimension(24, 24));
 
 		// Test implements.
-		this.left_overview_panel = gui_data_model.getLeft_overview_panel();
 		this.left_background_graphics_panel = gui_data_model.getLeft_background_graphics_panel();
 		this.right_background_graphics_panel = gui_data_model.getRight_background_graphics_panel();
 		// Add its own ActionListener.

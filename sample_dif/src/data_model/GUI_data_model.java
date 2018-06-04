@@ -7,10 +7,10 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import compare_algorithm.*;
 import panel_model.Background_line_graphics_panel;
-import panel_model.Left_overview_panel;
 import panel_model.Text_panel;
 
 public class GUI_data_model {
@@ -27,8 +27,10 @@ public class GUI_data_model {
 	 */
 	private JTextArea left_text_area;
 	private JTextArea right_text_area;
+	private JTextField filepath_field;
 	private String left_file_path;
 	private String right_file_path;
+	private String find_file_path;
 	private List<String_object> left_list;
 	private List<String_object> right_list;
 	private JFrame load_frame;
@@ -38,7 +40,8 @@ public class GUI_data_model {
 	private String left_name;
 	private String right_name;
 
-	private Left_overview_panel left_overview_panel;
+	private JLabel left_filepath_label;
+	private JLabel right_filepath_label;
 	private Background_line_graphics_panel left_background_graphics_panel;
 	private Background_line_graphics_panel right_background_graphics_panel;
 
@@ -57,7 +60,41 @@ public class GUI_data_model {
 	/*
 	 * Getter & Setter.
 	 */
-	public JTextArea getLeft_text_area() {
+	// For Get File Path to Load_Frame;
+		public JTextField get_path_Field() {
+			return filepath_field;
+		}
+		
+		public void set_filepath_field(JTextField filepath_field) {
+			this.filepath_field = filepath_field;
+		}
+		
+		public void set_file_path(String find_file_path) {
+			this.find_file_path = find_file_path;
+		}
+		
+		public String get_file_path() {
+			return find_file_path;
+		}
+		
+		// JTextField
+		public JLabel getLeft_path_label() {
+			return left_filepath_label;
+		}
+		
+		public void setLeft_filepath_label(JLabel left_filepath_label) {
+			this.left_filepath_label = left_filepath_label;
+		}
+		
+		public JLabel getRight_path_label() {
+			return right_filepath_label;
+		}
+		
+		public void setRight_filepath_label(JLabel right_filepath_label) {
+			this.right_filepath_label = right_filepath_label;
+		}
+		
+		public JTextArea getLeft_text_area() {
 		return left_text_area;
 	}
 	
@@ -119,14 +156,6 @@ public class GUI_data_model {
 
 	public void setRight_list(List<String_object> right_list) {
 		this.right_list = right_list;
-	}
-
-	public Left_overview_panel getLeft_overview_panel() {
-		return left_overview_panel;
-	}
-
-	public void setLeft_overview_panel(Left_overview_panel left_overview_panel) {
-		this.left_overview_panel = left_overview_panel;
 	}
 
 	public Background_line_graphics_panel getLeft_background_graphics_panel() {

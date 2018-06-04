@@ -32,7 +32,9 @@ public class Text_panel extends JPanel {
 		// set background line panel's properties.
 		this.background_line_graphics_panel = new Background_line_graphics_panel(this.text_area);
 		this.background_line_graphics_panel.setLayout(new BorderLayout());
+		this.background_line_graphics_panel.setSize(400,700);
 		this.background_line_graphics_panel.add(this.text_area, "Center");
+		
 		
 		// set scroll pane's properties.
 		this.scroll_pane = new JScrollPane(this.background_line_graphics_panel);
@@ -49,9 +51,10 @@ public class Text_panel extends JPanel {
 		}
 
 		// Use BorderLayout.
-		this.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout(2,0));
+		this.setSize(400,700);
+		this.scroll_pane.setLocation(100,0);
 		this.add(this.scroll_pane, "Center");
-
 		// This color may not be shown cause of BorderLayout.
 		this.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}

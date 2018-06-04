@@ -14,7 +14,7 @@ public class Button_text_panel extends JPanel {
 	public static final int height = 700;
 
 	// Own panels contains.
-	private Button_panel button_panel;
+	private Filepath_panel button_panel;
 	private Text_panel text_panel;
 
 	// Location.
@@ -25,7 +25,7 @@ public class Button_text_panel extends JPanel {
 
 		this.location = location;
 		this.text_panel = new Text_panel(location, gui_data_model);
-		this.button_panel = new Button_panel(location, gui_data_model);
+		this.button_panel = new Filepath_panel(location, gui_data_model);
 
 		// Use borderLayout.
 		this.setLayout(new BorderLayout(0, 0));

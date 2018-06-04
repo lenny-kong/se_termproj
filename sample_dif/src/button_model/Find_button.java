@@ -3,6 +3,7 @@ package button_model;
 import java.awt.Dimension;
 
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import button_controller.Find_button_actionlistener;
 import data_model.GUI_data_model;
@@ -13,9 +14,10 @@ public class Find_button extends Button_model {
 	private final String default_image_path = "icon_image/find/find.png";
 	private final String pushed_image_path = "icon_image/find/find_push.png";
 	private final String mouseover_image_path = "icon_image/find/find_mouseover.png";
-	private JTextArea text_area;
+	private GUI_data_model gui_data_model;
+	private JTextField text_field = new JTextField("",30);
 
-	public Find_button(GUI_data_model gui_data_model, JTextArea text_area) {
+	public Find_button(GUI_data_model gui_data_model, JTextField text_field) {
 		// construct and set default image.
 		super(Icon_image_load.load_image("icon_image/find/find.png"));
 
@@ -37,17 +39,20 @@ public class Find_button extends Button_model {
 		// set button size.
 		this.setPreferredSize(new Dimension(24, 24));
 
-		this.setText_area(text_area);
+		this.text_field = text_field;
+		//this.text_field = gui_data_model.get_path_Field();
+		this.gui_data_model = gui_data_model.getGui_data_model();
+		
 		Find_button_actionlistener actionlistener = new Find_button_actionlistener();
 		this.addActionListener(actionlistener);
 		// set action listener , gui data model
 	}
+	public GUI_data_model getGui_data_model() {
+		return gui_data_model;
+	} // get gui data model
 
-	public JTextArea getText_area() {
-		return text_area;
-	}
-
-	public void setText_area(JTextArea text_area) {
-		this.text_area = text_area;
+		
+	public void print_file_path() {
+		text_field.setText(gui_data_model.get_file_path());
 	}
 }

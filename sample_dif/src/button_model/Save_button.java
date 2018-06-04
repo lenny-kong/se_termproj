@@ -85,7 +85,7 @@ public class Save_button extends Button_model {
 			// if file that has same name is exist
 			fileTemp = new File(fileNameTemp);
 			if (fileTemp.exists()) {
-				int r = JOptionPane.showConfirmDialog(f, fileTemp.getName() + "이(가) 이미 있습니다. 바꾸시겠습니까?", "다른 이름으로 저장 확인",
+				int r = JOptionPane.showConfirmDialog(f, fileTemp.getName() + " file has already exists!\nAre you sure to save file with "+fileTemp.getName()+" ?", "Save Error",
 						JOptionPane.YES_NO_OPTION);
 				if (r == JOptionPane.NO_OPTION) {
 					// recursive
@@ -101,9 +101,13 @@ public class Save_button extends Button_model {
 	public void savefile(File file, List<String_object> list) throws IOException {
 		int cnt = 0;
 		BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-		for (cnt = 0; cnt != list.size(); cnt++) {
-			bw.write(list.get(cnt).get_string());
-			bw.newLine();
+		if(list == null) {
+			bw.write("");
+		}else {
+			for (cnt = 0; cnt != list.size(); cnt++) {
+				bw.write(list.get(cnt).get_string());
+				bw.newLine();
+			}
 		}
 		bw.close();
 	}
