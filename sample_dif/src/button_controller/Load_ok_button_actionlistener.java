@@ -18,10 +18,17 @@ public class Load_ok_button_actionlistener implements ActionListener {
 			load_ok_button.getGui_data_model().setLeft_file_path(load_ok_button.getLeftpath());
 		if (load_ok_button.getRightpath().length() != 0)
 			load_ok_button.getGui_data_model().setRight_file_path(load_ok_button.getRightpath());
-
+		if(load_ok_button.getLeftpath().length() == 0) {
+			load_ok_button.getGui_data_model().setLeft_file_path("");
+		}
+		if(load_ok_button.getRightpath().length()==0) {
+			load_ok_button.getGui_data_model().setRight_file_path("");
+		}
+		
+		
 		if (load_ok_button.getGui_data_model().getLeft_file_path().length() != 0
 				|| load_ok_button.getGui_data_model().getRight_file_path().length() != 0) {
-			// ������ �ΰ��� �� �ε�Ǿ�� ��.
+		
 			load_ok_button.input_file_data_to_list();
 
 			load_ok_button.display_list_to_textarea();

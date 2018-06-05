@@ -22,7 +22,7 @@ public class Load_Frame extends JFrame {
 
 	private Load_ok_button ok_set_path_gui_data_model;
 	private GUI_data_model gui_data_model = new GUI_data_model();
-	int width = 600, height = 180;
+	int width = 610, height = 190;
 
 	public Load_Frame(GUI_data_model gui_data_model) {
 		this.gui_data_model = gui_data_model;

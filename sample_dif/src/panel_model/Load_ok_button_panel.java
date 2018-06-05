@@ -32,7 +32,7 @@ public class Load_ok_button_panel extends JPanel {
 		this.rightpath = rightpath;
 		this.setSize(600,50);
 		this.setLayout(new FlowLayout());
-		this.add(load_ok_button);
+		this.add(load_ok_button,"Center");
 		this.setVisible(true);		
 	}
 }

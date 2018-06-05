@@ -50,6 +50,8 @@ public class Load_ok_button extends Button_model {
 		this.gui_data_model = gui_data_model;
 		this.leftpath = leftpath;
 		this.rightpath = rightpath;
+		this.leftpath.setEditable(false);
+		this.rightpath.setEditable(false);
 
 		Load_ok_button_actionlistener actionlistener = new Load_ok_button_actionlistener();
 		this.addActionListener(actionlistener);
@@ -106,25 +108,24 @@ public class Load_ok_button extends Button_model {
 	public void display_path_to_patharea() {
 		int left_index = gui_data_model.getLeft_file_path().lastIndexOf("\\");
 		int right_index = gui_data_model.getRight_file_path().lastIndexOf("\\");
-
-		if (gui_data_model.getLeft_text_area().getText().length() == 0) {
-			if (left_index == -1) {
+		int left_index_txt = gui_data_model.getLeft_file_path().lastIndexOf(".txt");
+		int right_index_txt = gui_data_model.getRight_file_path().lastIndexOf(".txt");
+				
+		if (left_index_txt == -1) {
 				gui_data_model.getLeft_path_label().setText(" File Not Selected.");
-			}
 		}
-		if (left_index != -1) {
+		if (left_index_txt != -1) {
 			gui_data_model.getLeft_path_label()
 					.setText(" File name : " + gui_data_model.getLeft_file_path().substring(left_index + 1));
 		}
-		if (gui_data_model.getRight_text_area().getText().length() == 0) {
-			if (right_index == -1) {
+		if (right_index_txt == -1) {
 				gui_data_model.getRight_path_label().setText(" File Not Selected.");
-			}
+			
 		}
-		if (right_index != -1) {
+		if (right_index_txt != -1) {
 			gui_data_model.getRight_path_label()
 					.setText(" File name : " + gui_data_model.getRight_file_path().substring(right_index + 1));
-		}
+		}		
 	}
 	// just display filename.txt , using index "\\"
 	// if file does not selected -> display "File not Selected."

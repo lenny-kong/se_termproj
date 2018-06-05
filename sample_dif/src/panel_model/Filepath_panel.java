@@ -3,6 +3,7 @@ package panel_model;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,6 +29,7 @@ public class Filepath_panel extends JPanel {
 		file_name_area = new JLabel("");
 		file_name_area.setText(" File Not Selected.");
 		this.add(file_name_area);
+		this.file_name_area.setFont(new Font("Arial",Font.BOLD,15));
 		
 		if(location == GUI_data_model.location.LEFT) {
 			gui_data_model.setLeft_filepath_label(this.file_name_area);

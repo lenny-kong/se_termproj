@@ -20,7 +20,6 @@ public class Text_panel extends JPanel {
 
 	public static final int width = 400;
 	public static final int height = 700;
-	private int fontsize;
 	
 	public Text_panel(GUI_data_model.location location, GUI_data_model gui_data_model) {
 		super();
