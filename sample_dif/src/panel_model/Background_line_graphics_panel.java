@@ -13,7 +13,9 @@ import data_model.Pastel_color;
 public class Background_line_graphics_panel extends JPanel {
 
 	private GUI_data_model gui_data_model;
-	public int height_per_line = 18;
+	//public int height_per_line = 20;
+
+	public int height_per_line;
 	public int maximum_line_in_window = 50;
 	public Color highlight_color = Color.WHITE;
 	private JTextArea text_area;
@@ -29,7 +31,10 @@ public class Background_line_graphics_panel extends JPanel {
 		super.paintComponent(g);
 		
 		int total_line = this.text_area.getLineCount();
+		//public int height_per_line = this.text_area.getFontMetrics(getFont()).getHeight() + 2;
+		this.height_per_line = this.text_area.getFont().getSize()+3;
 		
+		System.out.println(height_per_line);
 		//before refresh_button is pressed or after merge button is pressed
 		if(!this.gui_data_model.getRefresh_status())
 			for (int i = 0; i < total_line; i++) {
@@ -75,18 +80,6 @@ public class Background_line_graphics_panel extends JPanel {
 			
 		
 	}
-		
-
-	
-
-	/*public void setRefresh_button(boolean refresh_button_click)
-	{
-		this.refresh_button_click =refresh_button_click; 
-	}
-	public boolean getRefresh_button()
-	{
-		return this.refresh_button_click;
-	}*/
 	public void setGui_data_model(GUI_data_model gui_data_model) {
 		this.gui_data_model = gui_data_model;
 		

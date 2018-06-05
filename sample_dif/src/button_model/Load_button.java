@@ -49,7 +49,7 @@ public class Load_button extends Button_model {
 	      int result = 0; // return value (confirm dialog)
 	      if (getGui_data_model().getLeft_text_area().getSelectionEnd() != 0
 	            || getGui_data_model().getRight_text_area().getSelectionEnd() != 0) {
-	         result = JOptionPane.showConfirmDialog(null, "There is content you were working on before. \n Would you like to load the file?", "warning",
+	         result = JOptionPane.showConfirmDialog(null, "There is content you were working on before. \n Would you like to load the file?", "Warning",
 	               JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 	         if (result == JOptionPane.YES_OPTION) {
 	            load = new Load_Frame(getGui_data_model());

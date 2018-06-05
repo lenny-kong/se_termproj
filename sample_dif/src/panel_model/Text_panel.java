@@ -2,6 +2,7 @@ package panel_model;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -19,15 +20,18 @@ public class Text_panel extends JPanel {
 
 	public static final int width = 400;
 	public static final int height = 700;
+	private int fontsize;
 	
 	public Text_panel(GUI_data_model.location location, GUI_data_model gui_data_model) {
 		super();
 
 		// set text area's properties.
+		
 		this.text_area = new JTextArea();
 		this.text_area.setEditable(false);
 		this.text_area.setOpaque(false);
 		this.text_area.setBackground(new Color(0,0,0,0));
+		this.text_area.setFont(new Font("Arial", 0, 17));
 
 		// set background line panel's properties.
 		this.background_line_graphics_panel = new Background_line_graphics_panel(this.text_area, gui_data_model);
