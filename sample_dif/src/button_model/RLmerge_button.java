@@ -52,17 +52,17 @@ public class RLmerge_button extends Button_model {
 			String_object input_line; // to convert string to string_object
 
 			// to contain textArea contents
-			List<String_object> l_list = new ArrayList<String_object>();
-			List<String_object> r_list = new ArrayList<String_object>();
+			List<String_object> source_list = new ArrayList<String_object>();
+			List<String_object> target_list = new ArrayList<String_object>();
 
-			// read Left_TextArea and put text in l_list
+			// read Left_TextArea and put text in source_list
 			try {
 				StringReader sr = new StringReader(source.getText());
 				BufferedReader br = new BufferedReader(sr);
 				while ((tmp = br.readLine()) != null) {
 
 					input_line = new String_object(tmp);
-					l_list.add(input_line);
+					source_list.add(input_line);
 
 				}
 			} catch (IOException e) {
@@ -70,7 +70,7 @@ public class RLmerge_button extends Button_model {
 				e.printStackTrace();
 			}
 
-			// read Right_TextArea and put text in R_list
+			// read Right_TextArea and put text in target_list
 			try {
 				StringReader sr = new StringReader(target.getText());
 				BufferedReader br = new BufferedReader(sr);
@@ -78,7 +78,7 @@ public class RLmerge_button extends Button_model {
 				while ((tmp = br.readLine()) != null) {
 
 					input_line = new String_object(tmp);
-					r_list.add(input_line);
+					target_list.add(input_line);
 
 				}
 			} catch (IOException e) {
@@ -92,25 +92,43 @@ public class RLmerge_button extends Button_model {
 
 			// merge Left to Right
 
-			for (int i = 0; i < r_list.size(); i++) {
-				if (r_list.get(i).get_string().equals("")) {
-					target.append(l_list.get(i).get_string());
+			for (int i = 0; i < target_list.size(); i++) {
+				if (target_list.get(i).get_string().equals("")) {
+					target.append(source_list.get(i).get_string());
 					target.append("\n");
 				}
 
 				else {
-					target.append(r_list.get(i).get_string());
+					target.append(target_list.get(i).get_string());
 					target.append("\n");
 
 				}
 			}
 
-			if (l_list.size() > r_list.size()) {
-				for (int i = r_list.size(); i < l_list.size(); i++) {
-					target.append(l_list.get(i).get_string());
+			if (source_list.size() > target_list.size()) {
+				for (int i = target_list.size(); i < source_list.size(); i++) {
+					target.append(source_list.get(i).get_string());
 					target.append("\n");
 				}
 			}
+			/*
+			 * after merge,put target_textArea in Left_list 
+			 * */
+			target_list.clear();
+			try {
+				StringReader sr = new StringReader(target.getText());
+				BufferedReader br = new BufferedReader(sr);
+				while ((tmp = br.readLine()) != null) {
+
+					input_line = new String_object(tmp);
+					target_list.add(input_line);
+
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			gui_data_model.setLeft_list(target_list);
 
 			// change background color.
 			gui_data_model.setRefresh_status(false);
