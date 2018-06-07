@@ -18,7 +18,7 @@ public class Text_panel extends JPanel {
 	private JScrollPane scroll_pane;
 	private Background_line_graphics_panel background_line_graphics_panel;
 
-	public static final int width = 400;
+	public static final int width = 500;
 	public static final int height = 700;
 	
 	public Text_panel(GUI_data_model.location location, GUI_data_model gui_data_model) {

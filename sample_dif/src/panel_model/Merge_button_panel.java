@@ -18,7 +18,7 @@ public class Merge_button_panel extends JPanel{
 		super();
 		
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 30));
-		this.setBorder(new EtchedBorder(EtchedBorder.RAISED));
+		//this.setBorder(new EtchedBorder(EtchedBorder.RAISED));
 		
 		lr_merge_button = new LRmerge_button(gui_data_model);
 		rl_merge_button = new RLmerge_button(gui_data_model);

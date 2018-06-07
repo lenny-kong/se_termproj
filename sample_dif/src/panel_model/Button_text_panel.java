@@ -10,7 +10,7 @@ import data_model.GUI_data_model;
 public class Button_text_panel extends JPanel {
 
 	// Own size.
-	public static final int width = 500;
+	public static final int width = 580;
 	public static final int height = 700;
 
 	// Own panels contains.
