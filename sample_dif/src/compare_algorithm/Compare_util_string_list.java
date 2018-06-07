@@ -257,8 +257,11 @@ public class Compare_util_string_list extends Compare_util_string {
 				break;
 			}
 			case UP: {
+				if(!right.get(l - 1).get_string().equals("")) 
+				{
 				left_temp.add(new String_object("", String_object.Modified_status.DIFFER));
 				right_temp.add(new String_object(right.get(l - 1).get_string(), String_object.Modified_status.DIFFER));
+				}
 				l--;
 				break;
 			}
@@ -306,19 +309,19 @@ public class Compare_util_string_list extends Compare_util_string {
 		left_temp = Utility.<String_object>reverse(left_temp);
 		right_temp = Utility.<String_object>reverse(right_temp);
 
-		for(int i = 0; i< left_temp.size(); i++) 
-		{
-			if(left_temp.get(i).get_string().equals("") 
-					&& right_temp.get(i).get_string().equals("")
-					//&& left_temp.get(i).get_status() == String_object.Modified_status.DIFFER
-					//&& right_temp.get(i).get_status() == String_object.Modified_status.DIFFER
-					) 
-			{
-				left_temp.remove(i);
-				right_temp.remove(i);
-				i--;
-			}
-		}
+//		for(int i = 0; i< left_temp.size(); i++) 
+//		{
+//			if(left_temp.get(i).get_string().equals("") 
+//					&& right_temp.get(i).get_string().equals("")
+//					//&& left_temp.get(i).get_status() == String_object.Modified_status.DIFFER
+//					//&& right_temp.get(i).get_status() == String_object.Modified_status.DIFFER
+//					) 
+//			{
+//				left_temp.remove(i);
+//				right_temp.remove(i);
+//				i--;
+//			}
+//		}
 		
 		// Get reversed list and set total list size.
 		this.left_String_object_list = left_temp;
