@@ -1,8 +1,9 @@
 package button_model;
-import java.io.*;
+
 import java.util.*;
 import javax.swing.*;
 import button_controller.RLmerge_button_actionlistener;
+import common_util_lib.Utility;
 import compare_algorithm.String_object;
 import data_model.GUI_data_model;
 import window_view.Icon_image_load;
@@ -48,44 +49,15 @@ public class RLmerge_button extends Button_model {
 	public void merge(JTextArea source, JTextArea target) {
 
 		if (source != null) {
-			String tmp; // to read a line in txt file
-			String_object input_line; // to convert string to string_object
+			
 
 			// to contain textArea contents
 			List<String_object> source_list = new ArrayList<String_object>();
 			List<String_object> target_list = new ArrayList<String_object>();
 
-			// read Left_TextArea and put text in source_list
-			try {
-				StringReader sr = new StringReader(source.getText());
-				BufferedReader br = new BufferedReader(sr);
-				while ((tmp = br.readLine()) != null) {
-
-					input_line = new String_object(tmp);
-					source_list.add(input_line);
-
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			// read Right_TextArea and put text in target_list
-			try {
-				StringReader sr = new StringReader(target.getText());
-				BufferedReader br = new BufferedReader(sr);
-
-				while ((tmp = br.readLine()) != null) {
-
-					input_line = new String_object(tmp);
-					target_list.add(input_line);
-
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-
-			}
+			// read TextArea and put text in list
+			Utility.textarea_to_list(source, source_list);
+			Utility.textarea_to_list(target, target_list);
 
 			// set Right_text_area to null
 			target.setText(null);
@@ -114,20 +86,8 @@ public class RLmerge_button extends Button_model {
 			/*
 			 * after merge,put target_textArea in Left_list 
 			 * */
-			target_list.clear();
-			try {
-				StringReader sr = new StringReader(target.getText());
-				BufferedReader br = new BufferedReader(sr);
-				while ((tmp = br.readLine()) != null) {
-
-					input_line = new String_object(tmp);
-					target_list.add(input_line);
-
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			Utility.textarea_to_list(target, target_list);
+			
 			gui_data_model.setLeft_list(target_list);
 
 			// change background color.

@@ -1,7 +1,13 @@
 package common_util_lib;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.List;
 
+import javax.swing.JTextArea;
+
+import compare_algorithm.String_object;
 import data_model.GUI_data_model;
 
 public class Utility {
@@ -66,6 +72,28 @@ public class Utility {
 	static public boolean bool_reverse(boolean input) {
 		return Boolean.logicalXor(input, true);
 	}
+	/*
+	 * Get the JTextArea and put it in the list.
+	 * */
+	static public void textarea_to_list(JTextArea target,List<String_object> list) 
+	{	list.clear();
+		String tmp;
+		String_object input_line;
+		try {
+			StringReader sr = new StringReader(target.getText());
+			BufferedReader br = new BufferedReader(sr);
+			while ((tmp = br.readLine()) != null) {
+
+				input_line = new String_object(tmp);
+					list.add(input_line);
+
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/*
 	 * display list in text area
 	 */
