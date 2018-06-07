@@ -28,7 +28,7 @@ class MainFrame extends JFrame {
 		this.setSize(width, height);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		this.setTitle("Test Window");
+		this.setTitle("SE_Simple_Diff");
 
 		// Construct. Order is important!!!!!
 		left_button_text_panel = new Button_text_panel(GUI_data_model.location.LEFT, gui_data_model);
